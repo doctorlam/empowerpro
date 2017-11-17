@@ -9,9 +9,13 @@ class ApplicationController < ActionController::Base
   end
    def after_sign_in_path_for(user) 
    		if user.role == 'sponsor'
-   			 dashboard_path # Or :prefix_to_your_route
+   			 new_sponsor_profile_path
    		else
-   			edit_user_password_path
+   			new_user_profile_path
   		end
 	end
+
+	def after_sign_out_path_for(user)
+    	new_user_registration_path
+  	end
 end

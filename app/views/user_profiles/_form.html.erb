@@ -1,0 +1,87 @@
+<%= form_with(model: user_profile, local: true) do |form| %>
+  <% if user_profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_profile.errors.count, "error") %> prohibited this user_profile from being saved:</h2>
+
+      <ul>
+      <% user_profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, id: :user_profile_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: :user_profile_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sponsor_id %>
+    <%= form.number_field :sponsor_id, id: :user_profile_sponsor_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :user_profile_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_number %>
+    <%= form.text_field :phone_number, id: :user_profile_phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street %>
+    <%= form.text_field :street, id: :user_profile_street %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :user_profile_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state, id: :user_profile_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zip %>
+    <%= form.text_field :zip, id: :user_profile_zip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_time %>
+    <%= form.text_field :contact_time, id: :user_profile_contact_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :credit_assessment %>
+    <%= form.check_box :credit_assessment, id: :user_profile_credit_assessment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :credit_debt %>
+    <%= form.check_box :credit_debt, id: :user_profile_credit_debt %>
+  </div>
+
+  <div class="field">
+    <%= form.label :credit_score_above %>
+    <%= form.check_box :credit_score_above, id: :user_profile_credit_score_above %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tos %>
+    <%= form.check_box :tos, id: :user_profile_tos %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

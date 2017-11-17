@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  sponsor_id: 1
+  email: MyString
+  phone_number: MyString
+  street: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  contact_time: MyString
+  credit_assessment: false
+  credit_debt: false
+  credit_score_above: false
+  tos: false
+
+two:
+  first_name: MyString
+  last_name: MyString
+  sponsor_id: 1
+  email: MyString
+  phone_number: MyString
+  street: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  contact_time: MyString
+  credit_assessment: false
+  credit_debt: false
+  credit_score_above: false
+  tos: false

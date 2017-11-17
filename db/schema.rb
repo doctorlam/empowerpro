@@ -10,7 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117002654) do
+ActiveRecord::Schema.define(version: 20171117010257) do
+
+  create_table "sponsor_profiles", force: :cascade do |t|
+    t.text "first_name"
+    t.text "last_name"
+    t.text "organization_name"
+    t.string "phone_number"
+    t.string "street"
+    t.string "city"
+    t.string "zip"
+    t.integer "employee_count"
+    t.string "contact_time"
+    t.boolean "tos"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "sponsor_id"
+    t.string "email"
+    t.string "phone_number"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "contact_time"
+    t.boolean "credit_assessment"
+    t.boolean "credit_debt"
+    t.boolean "credit_score_above"
+    t.boolean "tos"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 # Could not dump table "users" because of following StandardError
 #   Unknown type 'stirng' for column 'role'

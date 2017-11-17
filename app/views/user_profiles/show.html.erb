@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @user_profile.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user_profile.last_name %>
+</p>
+
+<p>
+  <strong>Sponsor:</strong>
+  <%= @user_profile.sponsor_id %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user_profile.email %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @user_profile.phone_number %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @user_profile.street %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @user_profile.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @user_profile.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @user_profile.zip %>
+</p>
+
+<p>
+  <strong>Contact time:</strong>
+  <%= @user_profile.contact_time %>
+</p>
+
+<p>
+  <strong>Credit assessment:</strong>
+  <%= @user_profile.credit_assessment %>
+</p>
+
+<p>
+  <strong>Credit debt:</strong>
+  <%= @user_profile.credit_debt %>
+</p>
+
+<p>
+  <strong>Credit score above:</strong>
+  <%= @user_profile.credit_score_above %>
+</p>
+
+<p>
+  <strong>Tos:</strong>
+  <%= @user_profile.tos %>
+</p>
+
+<%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |
+<%= link_to 'Back', user_profiles_path %>
