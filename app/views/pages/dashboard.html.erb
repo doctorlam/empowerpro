@@ -1,0 +1,18 @@
+<div class="hero">
+<div class="home-content row">
+  <div class="top-text">
+    <div class="col-md-4">
+        <h1>Connecting organizations with technical communication class projects in 3 simple steps</h1>
+      <div class="buttons">
+        <%= link_to "Sign up", new_user_registration_path, class: "btn home-button-left" %>
+       <a href="#more" class="smoothscroll"><button class="home-button-right">Learn more</button></a>
+      </div>
+</div>
+<% if current_user.role?("user") %>
+  user
+  <% else %>
+  sponsor
+<% end %>
+
+
+</div>
