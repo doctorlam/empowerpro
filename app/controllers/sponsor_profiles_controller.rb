@@ -5,7 +5,7 @@ class SponsorProfilesController < ApplicationController
   # GET /sponsor_profiles.json
   def index
     @sponsor_profiles = SponsorProfile.where(:user_id => current_user.id)
-
+    @user_profiles = UserProfile.all
   end
 
   # GET /sponsor_profiles/1
