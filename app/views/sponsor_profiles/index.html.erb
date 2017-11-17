@@ -32,9 +32,12 @@
         <td><%= sponsor_profile.employee_count %></td>
         <td><%= sponsor_profile.contact_time %></td>
         <td><%= sponsor_profile.tos %></td>
+    <% if can? :manage, @sponsor_profile %>
+
         <td><%= link_to 'Show', sponsor_profile %></td>
         <td><%= link_to 'Edit', edit_sponsor_profile_path(sponsor_profile) %></td>
         <td><%= link_to 'Destroy', sponsor_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
       </tr>
     <% end %>
   </tbody>

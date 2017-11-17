@@ -4516,3 +4516,231 @@ Processing by UserProfilesController#index as HTML
 Completed 200 OK in 47ms (Views: 44.6ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 10:13:32 -0600
+Processing by UserProfilesController#index as HTML
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles"[0m
+  Rendered user_profiles/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Completed 200 OK in 48ms (Views: 45.6ms | ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 10:17:34 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UserProfilesController#index as HTML
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles"[0m
+  Rendered user_profiles/index.html.erb within layouts/application (3.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Completed 200 OK in 359ms (Views: 343.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/sponsor_profiles/" for 127.0.0.1 at 2017-11-17 10:17:37 -0600
+Processing by SponsorProfilesController#index as HTML
+  Rendering sponsor_profiles/index.html.erb within layouts/application
+  [1m[36mSponsorProfile Load (0.2ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered sponsor_profiles/index.html.erb within layouts/application (40.3ms)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `sponsor?' for #<User:0x007faffd44edf0>):
+    32:         <td><%= sponsor_profile.employee_count %></td>
+    33:         <td><%= sponsor_profile.contact_time %></td>
+    34:         <td><%= sponsor_profile.tos %></td>
+    35:     <% if can? :manage, @sponsor_profile %>
+    36: 
+    37:         <td><%= link_to 'Show', sponsor_profile %></td>
+    38:         <td><%= link_to 'Edit', edit_sponsor_profile_path(sponsor_profile) %></td>
+  
+app/models/ability.rb:6:in `initialize'
+app/views/sponsor_profiles/index.html.erb:35:in `block in _app_views_sponsor_profiles_index_html_erb___2342118147093865369_70196933987320'
+app/views/sponsor_profiles/index.html.erb:23:in `_app_views_sponsor_profiles_index_html_erb___2342118147093865369_70196933987320'
+Started GET "/sponsor_profiles/" for 127.0.0.1 at 2017-11-17 10:17:56 -0600
+Processing by SponsorProfilesController#index as HTML
+  Rendering sponsor_profiles/index.html.erb within layouts/application
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles"[0m
+  Rendered sponsor_profiles/index.html.erb within layouts/application (15.9ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.2ms)
+
+
+  
+SyntaxError (/Users/ChrisLam/empowerpro/app/models/ability.rb:7: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+      can :manage, :all
+           ^
+/Users/ChrisLam/empowerpro/app/models/ability.rb:12: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/models/ability.rb:7: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+app/models/ability.rb:12: syntax error, unexpected keyword_end, expecting end-of-input
+app/views/sponsor_profiles/index.html.erb:35:in `block in _app_views_sponsor_profiles_index_html_erb___2342118147093865369_70196873529400'
+app/views/sponsor_profiles/index.html.erb:23:in `_app_views_sponsor_profiles_index_html_erb___2342118147093865369_70196873529400'
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 10:19:19 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UserProfilesController#index as HTML
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles"[0m
+  Rendered user_profiles/index.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Completed 200 OK in 318ms (Views: 305.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/sponsor_profiles/" for 127.0.0.1 at 2017-11-17 10:19:23 -0600
+Processing by SponsorProfilesController#index as HTML
+  Rendering sponsor_profiles/index.html.erb within layouts/application
+  [1m[36mSponsorProfile Load (0.2ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles"[0m
+  Rendered sponsor_profiles/index.html.erb within layouts/application (31.2ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.8ms)
+
+
+  
+SyntaxError (/Users/ChrisLam/empowerpro/app/models/ability.rb:7: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+      can :manage, :all
+           ^
+/Users/ChrisLam/empowerpro/app/models/ability.rb:12: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/models/ability.rb:7: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+app/models/ability.rb:12: syntax error, unexpected keyword_end, expecting end-of-input
+app/views/sponsor_profiles/index.html.erb:35:in `block in _app_views_sponsor_profiles_index_html_erb___1669034538130848915_70198201003000'
+app/views/sponsor_profiles/index.html.erb:23:in `_app_views_sponsor_profiles_index_html_erb___1669034538130848915_70198201003000'
+Started GET "/sponsor_profiles/" for 127.0.0.1 at 2017-11-17 10:19:42 -0600
+Processing by SponsorProfilesController#index as HTML
+  Rendering sponsor_profiles/index.html.erb within layouts/application
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered sponsor_profiles/index.html.erb within layouts/application (40.7ms)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+    32:         <td><%= sponsor_profile.employee_count %></td>
+    33:         <td><%= sponsor_profile.contact_time %></td>
+    34:         <td><%= sponsor_profile.tos %></td>
+    35:     <% if can? :manage, @sponsor_profile %>
+    36: 
+    37:         <td><%= link_to 'Show', sponsor_profile %></td>
+    38:         <td><%= link_to 'Edit', edit_sponsor_profile_path(sponsor_profile) %></td>
+  
+app/models/ability.rb:6:in `initialize'
+app/views/sponsor_profiles/index.html.erb:35:in `block in _app_views_sponsor_profiles_index_html_erb___1669034538130848915_70198199938560'
+app/views/sponsor_profiles/index.html.erb:23:in `_app_views_sponsor_profiles_index_html_erb___1669034538130848915_70198199938560'
+Started GET "/sponsor_profiles/" for 127.0.0.1 at 2017-11-17 10:21:10 -0600
+Processing by SponsorProfilesController#index as HTML
+  Rendering sponsor_profiles/index.html.erb within layouts/application
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered sponsor_profiles/index.html.erb within layouts/application (36.9ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `sponsor?' for #<User:0x007fb096462370>):
+    32:         <td><%= sponsor_profile.employee_count %></td>
+    33:         <td><%= sponsor_profile.contact_time %></td>
+    34:         <td><%= sponsor_profile.tos %></td>
+    35:     <% if can? :manage, @sponsor_profile %>
+    36: 
+    37:         <td><%= link_to 'Show', sponsor_profile %></td>
+    38:         <td><%= link_to 'Edit', edit_sponsor_profile_path(sponsor_profile) %></td>
+  
+app/models/ability.rb:6:in `initialize'
+app/views/sponsor_profiles/index.html.erb:35:in `block in _app_views_sponsor_profiles_index_html_erb___1669034538130848915_70198203987660'
+app/views/sponsor_profiles/index.html.erb:23:in `_app_views_sponsor_profiles_index_html_erb___1669034538130848915_70198203987660'
+Started GET "/sponsor_profiles/" for 127.0.0.1 at 2017-11-17 10:23:31 -0600
+Processing by SponsorProfilesController#index as HTML
+  Rendering sponsor_profiles/index.html.erb within layouts/application
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered sponsor_profiles/index.html.erb within layouts/application (27.8ms)
+Completed 200 OK in 70ms (Views: 66.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/sponsor_profiles/" for 127.0.0.1 at 2017-11-17 10:23:53 -0600
+Processing by SponsorProfilesController#index as HTML
+  Rendering sponsor_profiles/index.html.erb within layouts/application
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered sponsor_profiles/index.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 70ms (Views: 65.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 10:26:12 -0600
+Processing by UserProfilesController#index as HTML
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.3ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles"[0m
+  Rendered user_profiles/index.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Completed 200 OK in 44ms (Views: 39.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 10:26:27 -0600
+Processing by UserProfilesController#index as HTML
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.1ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles"[0m
+  Rendered user_profiles/index.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Completed 200 OK in 58ms (Views: 52.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 10:26:28 -0600
+Processing by UserProfilesController#index as HTML
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles"[0m
+  Rendered user_profiles/index.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Completed 200 OK in 41ms (Views: 38.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/user_profiles/new" for 127.0.0.1 at 2017-11-17 10:26:30 -0600
+Processing by UserProfilesController#new as HTML
+  Rendering user_profiles/new.html.erb within layouts/application
+  Rendered user_profiles/_form.html.erb (17.8ms)
+  Rendered user_profiles/new.html.erb within layouts/application (19.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Completed 200 OK in 85ms (Views: 66.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/user_profiles" for 127.0.0.1 at 2017-11-17 10:26:34 -0600
+Processing by UserProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AP8lioMop26YnakYoZEfTBJgKqN+we8CluxUy6e/ZPWw/U55OFRUIlnjHu42cx4EDSZl5taeyfpNRg39wYYLcg==", "user_profile"=>{"first_name"=>"asdf", "last_name"=>"asdf", "sponsor_id"=>"", "email"=>"", "phone_number"=>"", "street"=>"", "city"=>"", "state"=>"", "zip"=>"", "contact_time"=>"", "credit_assessment"=>"0", "credit_debt"=>"0", "credit_score_above"=>"0", "tos"=>"0"}, "commit"=>"Create User profile"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "user_profiles" ("first_name", "last_name", "email", "phone_number", "street", "city", "state", "zip", "contact_time", "credit_assessment", "credit_debt", "credit_score_above", "tos", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "asdf"], ["last_name", "asdf"], ["email", ""], ["phone_number", ""], ["street", ""], ["city", ""], ["state", ""], ["zip", ""], ["contact_time", ""], ["credit_assessment", "f"], ["credit_debt", "f"], ["credit_score_above", "f"], ["tos", "f"], ["created_at", "2017-11-17 16:26:34.855181"], ["updated_at", "2017-11-17 16:26:34.855181"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/user_profiles/1
+Completed 302 Found in 6ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/user_profiles/1" for 127.0.0.1 at 2017-11-17 10:26:34 -0600
+Processing by UserProfilesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user_profiles/show.html.erb within layouts/application
+  Rendered user_profiles/show.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Completed 200 OK in 44ms (Views: 40.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 10:26:36 -0600
+Processing by UserProfilesController#index as HTML
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles"[0m
+  Rendered user_profiles/index.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Completed 200 OK in 51ms (Views: 49.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sponsor_profiles/" for 127.0.0.1 at 2017-11-17 10:26:40 -0600
+Processing by SponsorProfilesController#index as HTML
+  Rendering sponsor_profiles/index.html.erb within layouts/application
+  [1m[36mSponsorProfile Load (0.2ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered sponsor_profiles/index.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 66ms (Views: 63.1ms | ActiveRecord: 0.7ms)
+
+

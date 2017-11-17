@@ -13,7 +13,7 @@ class User < ApplicationRecord
     	self.roles.where(:name => role_names).present?
   	end
 
- 	ROLES = %w[sponsor user]
+  ROLES = %w[sponsor user].freeze
  
 def role_symbols
       [role.to_sym]
