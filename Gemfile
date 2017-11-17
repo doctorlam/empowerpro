@@ -31,6 +31,7 @@ gem 'devise'
 gem "cancan"
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
+gem 'nested_form_fields'
 
 
 group :development, :test do

@@ -12994,3 +12994,549 @@ Processing by SponsorProfilesController#index as HTML
 Completed 200 OK in 46ms (Views: 42.2ms | ActiveRecord: 0.5ms)
 
 
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCourses (20171117215047)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171117215047"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-11-17 15:51:26 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"UzdckIldV2ISjQib7hy+GNI+nij1KhkhOLdYHezp6gtDLq1PwQFHiHQ22jnL9w7QeROJEaDBCk3vohQk8LphkQ=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 18ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-11-17 15:51:26 -0600
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 138ms (Views: 137.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-11-17 15:55:31 -0600
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 50ms (Views: 49.1ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLessons (20171117215727)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" text, "content" text, "course_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_4bcdb571d9"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_lessons_on_course_id" ON "lessons" ("course_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171117215727"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_lessons_on_course_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_lessons_on_course_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/courses/new" for 127.0.0.1 at 2017-11-17 16:01:35 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (109.7ms)
+  Rendered courses/new.html.erb within layouts/application (111.2ms)
+Completed 500 Internal Server Error in 126ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `nested_fields_for' for #<ActionView::Helpers::FormBuilder:0x007ff6d22ab720>
+Did you mean?  nested_child_index):
+    16:     <%= form.text_area :name, id: :course_name %>
+    17:   </div>
+    18:    <h3>Add Lessons</h3>
+    19:     <%= form.nested_fields_for :lessons do |lesson| %>
+    20:       <%= lesson.text_field :name %>
+    21:       <%= lesson.text_area :content %>
+    22:       <%= lesson.remove_nested_fields_link %>
+  
+app/views/courses/_form.html.erb:19:in `block in _app_views_courses__form_html_erb__1223451888290382748_70349032414000'
+app/views/courses/_form.html.erb:1:in `_app_views_courses__form_html_erb__1223451888290382748_70349032414000'
+app/views/courses/new.html.erb:3:in `_app_views_courses_new_html_erb___2060375285087419125_70349028102620'
+Started GET "/courses/new" for 127.0.0.1 at 2017-11-17 16:01:56 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (38.1ms)
+  Rendered courses/new.html.erb within layouts/application (40.2ms)
+Completed 200 OK in 2216ms (Views: 2196.6ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2017-11-17 16:02:51 -0600
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RLDI80hIFyGulLdCaWo1bpNjg5o+2pKrS6ukwoP1vAWn1pkSLD1GKVDuAUPmpVQceWdHLe7OP5P0iEIsYppcyA==", "course"=>{"name"=>"Financial Wellness Course", "lessons_attributes"=>{"0"=>{"name"=>"INTRODUCTION", "content"=>"INTRODUCTION\r\n\r\n \r\n\r\n \r\n\r\n The world is too much with us; late and soon\r\n\r\n                     Getting and spending, we lay waste our powers.\r\n\r\n \r\n\r\n                                                                -William Wordsworth\r\n\r\n \r\n\r\n \r\n\r\n \r\n\r\nWould you like to experience less stress and more balance in your finances and life?\r\nHave you found yourself stuck trying to solve the same old money problems over and over?\r\nDo you and your partner have money issues that never seem to get resolved?\r\nDo you wish you had a compelling vision to bring the highest meaning to your life?\r\nWould you like to improve your relationship with money?\r\nDo you want a healthy relationship with money that is free from fears and limiting beliefs, nurtured by your core values and grounded in a clear vision of what you want?\r\n \r\n\r\nChances are that you have been trying to ignore or overcome the patterns of behavior you would like to change. These patterns, however, stem from a way of looking at the world; your weltanschauung or world view that filters your experience. It screens out new ways of thinking and behaving and keeps you in a box. The best way to break out of this box is to observe your patterns with compassion and objectivity or mindfulness, so that you can try something different.\r\n\r\n \r\n\r\nIn this powerful and thought provoking Financial Wellness Program, we will explore the psychology behind money behaviors since money is inextricably linked to our worldview, our beliefs and our values. Too many of us are living lives inconsistent with who we really are. As a result, we feel stress, strain, unfulfillment and unhappiness. This puts us at risk; mind, body and soul. There IS a better way to live.\r\n\r\nDuring the next ten lessons, the honest answers you provide and the various exercises and activities you will engage in will extend you the opportunity to cross an evolutionary threshold into a different kind of humanity; a humanity desperately needed by you and the world in which we all live.\r\n\r\nWith this course, you will learn the principles and practices to:\r\n\r\nHeighten your self-understanding as it relates to money matters.\r\nDefine important moments in your history with money. This includes examining/transforming fears and limiting beliefs that sabotage your success, prosperity and forward movement in your life.\r\nStrengthen your sense of direction.\r\nPut money in its right place in your life, according to what you value and what you want.\r\nReframe your experiences so that you can solve your own problems.\r\nEstablish short, mid and long-term visions to guide new ways of interacting with money.\r\nDevelop your special capacities and gifts.\r\nOpen yourself to new possibilities.\r\nCommunicate in ways that resonate with others while being true to yourself.\r\nCreate tangible strategies to forge an intimate, healthy relationship with money based upon your new beliefs, clear intentions and new actions.\r\n \r\n\r\nAs an affirmation of the healing path you are embarking upon, we would like to dedicate the following poem by Juan Ramon Jimenez.\r\n\r\n \r\n\r\nOCEANS\r\n\r\nI have a feeling my boat\r\n\r\nHas struck down there in the depths,\r\n\r\nAgainst a great thing.\r\n\r\nAnd nothing happens\r\n\r\nSilence, waves\r\n\r\nNothing happens?\r\n\r\nOr has everything happened?\r\n\r\nAnd we are standing now, quietly, in the new life?\r\n\r\n \r\n\r\nPlease contemplate on this poem. In what ways are you ‘standing in a new life’ as compared with years before?\r\n\r\n_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\r\n\r\n \r\n\r\nOur program guides you through a potentially profound and healing understanding; one that involves and even requires significant personal commitment and an ongoing fidelity of engagement. The ultimate fidelity, naturally, is to yourself, to your life, your moments and the beauty of your being. There are numerous benefits in complying with the course assignments. The assignment of homework:\r\n\r\nis a way to test beliefs in daily life and acts as a continuance of themes you may identify throughout the duration of the course.\r\noffers observation or behavior tasks that are assigned to build solutions.\r\ncreates opportunities for new experiences and new realities.\r\nis used to transfer learning to your everyday life.\r\nhelps you to assume responsible, active role in the change process. You become a change agent in your life. Your actions lead to empowerment.\r\nallows you to attempt new behaviors that arise from insight, understanding and cognitive restructuring.\r\nis a way of assisting you to gain and maintain balance in your life by learning to respond to stress not with frustration and criticism, but with mindful, nonjudgmental awareness of our bodies and minds.\r\n \r\n\r\nLet’s get started! \r\n\r\nGETTING STARTED\r\n\r\n______________________________________________________________________\r\n\r\n \r\n\r\n            \r\n\r\n                   A journey of a thousand miles begins with a single step.\r\n\r\n \r\n\r\n                                                                                                           Lao-tzu\r\n\r\n______________________________________________________________________\r\n\r\n \r\n\r\nAt EmpowerPro Financial, you will gain insight and expertise in two areas that directly affect financial well-being:\r\n\r\nKnowledge of personal finances/ financial literacy. This is the “nuts and bolts” of the program which involves knowing how to plan and implement essential financial tasks such as calculating net worth, creating a spending plan, evaluating credit offers and building and maintaining a good credit record.\r\n2. Awareness of money beliefs and behaviors. Dave Ramsey, author of The Financial Peace Planner, says: “Financial management is 80% behavior and 20% know-how”. Although personal finances are often derailed by “insolvency events” such as job loss or medical emergency, how people think and behave with money also creates insolvency. Destructive money beliefs and behaviors can sabotage budgets, spark interfamily conflicts, and make financial goals unattainable.\r\nThis course gives equal time to an exploration of the dynamics behind healthy as well as destructive money behaviors. Addressing the cognitive and behavioral roots of the way you perceive and use money is a crucial, but oftentimes neglected aspect of getting your finances in order and restoring health and balance in your life. Most financial programs leave out this necessary component, but to truly transform your relationship to finance, you simply must explore your belief and feelings about money.\r\n\r\nFor many of us, the seeds of our unconscious attitudes about money are often imbedded in our childhood and early adulthood. Exploring these issues can be a heart-involving adventure, since for most people, the real source of self-defeating money behavior is a kind of hunger that stems from unmet needs, whether in the present or originating in childhood.\r\n\r\nAcceptance and unconditional positive regard of our clients\r\n\r\nA key feature which is common to both money advice and counseling in general is a non-judgmental approach. Typically, the client feels worthless, a failure, the cause of his/her own debt and downfall. Linked to this may be a feeling of shame; a shame which is often associated with a person who has been involved in comfort buying. The purchases give a feeling of power and well-being, they wager a feeling of excitement – short lived anesthetics which kill the pain of living long term on the edge. In a society where the level of material possessions is equated with personal worth, the lack of financial resources carries the tag “worthless”. At EmpowerPro Financial, we adopt a value system which understands that debt is a global multi-dimensional problem requiring multi-dimensional solutions. It is partly a consequence of today’s economic society and a problem not to be borne by individuals alone. Acceptance of the client in his or her totality is the first step. It must be prior to and take precedence over the practical details of the debt itself.\r\n\r\nThe lessons in this course will elucidate and guide you. The course requires that we have the courage to confront ourselves. Before we commit to a course of action, we must examine our motives, understand the psychology of an action.  We must answer questions such as “What’s my motivation?” and “Why do we want what we want?”. We must be honest in our analysis. We cannot disguise desire with rationalization or sentimentality to convince ourselves that we are acting prudently or altruistically.  Our program will help you understand that money issues are completely interwoven with lifestyle issues, personal values and life goals. This course is a powerful tool that facilitates insight and understanding. At EmpowerPro Financial, we commend and congratulate you for taking the opportunity to embark on this journey and become financially empowered.\r\n\r\n \r\n\r\nWarm Regards,\r\nYour Friends at EmpowerPro Financial"}, "1"=>{"name"=>"", "content"=>""}}}, "commit"=>"Create Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Financial Wellness Course"], ["created_at", "2017-11-17 22:02:51.261936"], ["updated_at", "2017-11-17 22:02:51.261936"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "lessons" ("name", "content", "course_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "INTRODUCTION"], ["content", "INTRODUCTION\r\n\r\n \r\n\r\n \r\n\r\n The world is too much with us; late and soon\r\n\r\n                     Getting and spending, we lay waste our powers.\r\n\r\n \r\n\r\n                                                                -William Wordsworth\r\n\r\n \r\n\r\n \r\n\r\n \r\n\r\nWould you like to experience less stress and more balance in your finances and life?\r\nHave you found yourself stuck trying to solve the same old money problems over and over?\r\nDo you and your partner have money issues that never seem to get resolved?\r\nDo you wish you had a compelling vision to bring the highest meaning to your life?\r\nWould you like to improve your relationship with money?\r\nDo you want a healthy relationship with money that is free from fears and limiting beliefs, nurtured by your core values and grounded in a clear vision of what you want?\r\n \r\n\r\nChances are that you have been trying to ignore or overcome the patterns of behavior you would like to change. These patterns, however, stem from a way of looking at the world; your weltanschauung or world view that filters your experience. It screens out new ways of thinking and behaving and keeps you in a box. The best way to break out of this box is to observe your patterns with compassion and objectivity or mindfulness, so that you can try something different.\r\n\r\n \r\n\r\nIn this powerful and thought provoking Financial Wellness Program, we will explore the psychology behind money behaviors since money is inextricably linked to our worldview, our beliefs and our values. Too many of us are living lives inconsistent with who we really are. As a result, we feel stress, strain, unfulfillment and unhappiness. This puts us at risk; mind, body and soul. There IS a better way to live.\r\n\r\nDuring the next ten lessons, the honest answers you provide and the various exercises and activities you will engage in will extend you the opportunity to cross an evolutionary threshold into a different kind of humanity; a humanity desperately needed by you and the world in which we all live.\r\n\r\nWith this course, you will learn the principles and practices to:\r\n\r\nHeighten your self-understanding as it relates to money matters.\r\nDefine important moments in your history with money. This includes examining/transforming fears and limiting beliefs that sabotage your success, prosperity and forward movement in your life.\r\nStrengthen your sense of direction.\r\nPut money in its right place in your life, according to what you value and what you want.\r\nReframe your experiences so that you can solve your own problems.\r\nEstablish short, mid and long-term visions to guide new ways of interacting with money.\r\nDevelop your special capacities and gifts.\r\nOpen yourself to new possibilities.\r\nCommunicate in ways that resonate with others while being true to yourself.\r\nCreate tangible strategies to forge an intimate, healthy relationship with money based upon your new beliefs, clear intentions and new actions.\r\n \r\n\r\nAs an affirmation of the healing path you are embarking upon, we would like to dedicate the following poem by Juan Ramon Jimenez.\r\n\r\n \r\n\r\nOCEANS\r\n\r\nI have a feeling my boat\r\n\r\nHas struck down there in the depths,\r\n\r\nAgainst a great thing.\r\n\r\nAnd nothing happens\r\n\r\nSilence, waves\r\n\r\nNothing happens?\r\n\r\nOr has everything happened?\r\n\r\nAnd we are standing now, quietly, in the new life?\r\n\r\n \r\n\r\nPlease contemplate on this poem. In what ways are you ‘standing in a new life’ as compared with years before?\r\n\r\n_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\r\n\r\n \r\n\r\nOur program guides you through a potentially profound and healing understanding; one that involves and even requires significant personal commitment and an ongoing fidelity of engagement. The ultimate fidelity, naturally, is to yourself, to your life, your moments and the beauty of your being. There are numerous benefits in complying with the course assignments. The assignment of homework:\r\n\r\nis a way to test beliefs in daily life and acts as a continuance of themes you may identify throughout the duration of the course.\r\noffers observation or behavior tasks that are assigned to build solutions.\r\ncreates opportunities for new experiences and new realities.\r\nis used to transfer learning to your everyday life.\r\nhelps you to assume responsible, active role in the change process. You become a change agent in your life. Your actions lead to empowerment.\r\nallows you to attempt new behaviors that arise from insight, understanding and cognitive restructuring.\r\nis a way of assisting you to gain and maintain balance in your life by learning to respond to stress not with frustration and criticism, but with mindful, nonjudgmental awareness of our bodies and minds.\r\n \r\n\r\nLet’s get started! \r\n\r\nGETTING STARTED\r\n\r\n______________________________________________________________________\r\n\r\n \r\n\r\n            \r\n\r\n                   A journey of a thousand miles begins with a single step.\r\n\r\n \r\n\r\n                                                                                                           Lao-tzu\r\n\r\n______________________________________________________________________\r\n\r\n \r\n\r\nAt EmpowerPro Financial, you will gain insight and expertise in two areas that directly affect financial well-being:\r\n\r\nKnowledge of personal finances/ financial literacy. This is the “nuts and bolts” of the program which involves knowing how to plan and implement essential financial tasks such as calculating net worth, creating a spending plan, evaluating credit offers and building and maintaining a good credit record.\r\n2. Awareness of money beliefs and behaviors. Dave Ramsey, author of The Financial Peace Planner, says: “Financial management is 80% behavior and 20% know-how”. Although personal finances are often derailed by “insolvency events” such as job loss or medical emergency, how people think and behave with money also creates insolvency. Destructive money beliefs and behaviors can sabotage budgets, spark interfamily conflicts, and make financial goals unattainable.\r\nThis course gives equal time to an exploration of the dynamics behind healthy as well as destructive money behaviors. Addressing the cognitive and behavioral roots of the way you perceive and use money is a crucial, but oftentimes neglected aspect of getting your finances in order and restoring health and balance in your life. Most financial programs leave out this necessary component, but to truly transform your relationship to finance, you simply must explore your belief and feelings about money.\r\n\r\nFor many of us, the seeds of our unconscious attitudes about money are often imbedded in our childhood and early adulthood. Exploring these issues can be a heart-involving adventure, since for most people, the real source of self-defeating money behavior is a kind of hunger that stems from unmet needs, whether in the present or originating in childhood.\r\n\r\nAcceptance and unconditional positive regard of our clients\r\n\r\nA key feature which is common to both money advice and counseling in general is a non-judgmental approach. Typically, the client feels worthless, a failure, the cause of his/her own debt and downfall. Linked to this may be a feeling of shame; a shame which is often associated with a person who has been involved in comfort buying. The purchases give a feeling of power and well-being, they wager a feeling of excitement – short lived anesthetics which kill the pain of living long term on the edge. In a society where the level of material possessions is equated with personal worth, the lack of financial resources carries the tag “worthless”. At EmpowerPro Financial, we adopt a value system which understands that debt is a global multi-dimensional problem requiring multi-dimensional solutions. It is partly a consequence of today’s economic society and a problem not to be borne by individuals alone. Acceptance of the client in his or her totality is the first step. It must be prior to and take precedence over the practical details of the debt itself.\r\n\r\nThe lessons in this course will elucidate and guide you. The course requires that we have the courage to confront ourselves. Before we commit to a course of action, we must examine our motives, understand the psychology of an action.  We must answer questions such as “What’s my motivation?” and “Why do we want what we want?”. We must be honest in our analysis. We cannot disguise desire with rationalization or sentimentality to convince ourselves that we are acting prudently or altruistically.  Our program will help you understand that money issues are completely interwoven with lifestyle issues, personal values and life goals. This course is a powerful tool that facilitates insight and understanding. At EmpowerPro Financial, we commend and congratulate you for taking the opportunity to embark on this journey and become financially empowered.\r\n\r\n \r\n\r\nWarm Regards,\r\nYour Friends at EmpowerPro Financial"], ["course_id", 1], ["created_at", "2017-11-17 22:02:51.263678"], ["updated_at", "2017-11-17 22:02:51.263678"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "lessons" ("name", "content", "course_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", ""], ["content", ""], ["course_id", 1], ["created_at", "2017-11-17 22:02:51.265495"], ["updated_at", "2017-11-17 22:02:51.265495"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 26ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2017-11-17 16:02:51 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mLesson Load (0.2ms)[0m  [1m[34mSELECT "lessons".* FROM "lessons" WHERE "lessons"."course_id" = ?[0m  [["course_id", 1]]
+  Rendered courses/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 69ms (Views: 62.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2017-11-17 16:03:02 -0600
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 58ms (Views: 55.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2017-11-17 16:03:08 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mLesson Load (0.2ms)[0m  [1m[34mSELECT "lessons".* FROM "lessons" WHERE "lessons"."course_id" = ?[0m  [["course_id", 1]]
+  Rendered courses/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 67ms (Views: 63.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2017-11-17 16:07:10 -0600
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 50ms (Views: 48.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-11-17 16:07:12 -0600
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 82ms (Views: 62.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-11-17 16:07:17 -0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rUUd5T/mpFSpZvHU5RuyOm5tPHqPJC7xIafV2B/8ucnGlRhP1kK9h9+cqnC8CW9ZzM8fipfF+RMmLF+WC2oFBQ==", "user"=>{"email"=>"user@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-11-17 22:07:18.076141"], ["last_sign_in_at", "2017-11-17 20:11:47.183987"], ["sign_in_count", 3], ["updated_at", "2017-11-17 22:07:18.077137"], ["id", 26]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/user_profiles
+Completed 302 Found in 168ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 16:07:18 -0600
+Processing by UserProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."user_id" = ?[0m  [["user_id", 26]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendered user_profiles/index.html.erb within layouts/application (51.4ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 2.1ms)
+
+
+  
+ActionView::Template::Error (Missing partial user_profiles/_courses, application/_courses with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/ChrisLam/empowerpro/app/views"
+  * "/Users/ChrisLam/.rvm/gems/ruby-2.3.1/gems/devise-4.3.0/app/views"
+):
+    53: </table>
+    54: 
+    55: <div class="courses">
+    56:   <%= render :partial => 'courses' %>
+    57: 
+    58: 
+    59: </div><!--/courses-->
+  
+app/views/user_profiles/index.html.erb:56:in `_app_views_user_profiles_index_html_erb__2362245002470817683_70131102204200'
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 16:07:44 -0600
+Processing by UserProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."user_id" = ?[0m  [["user_id", 26]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendered user_profiles/index.html.erb within layouts/application (6.4ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Missing partial /_courses with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/ChrisLam/empowerpro/app/views"
+  * "/Users/ChrisLam/.rvm/gems/ruby-2.3.1/gems/devise-4.3.0/app/views"
+):
+    53: </table>
+    54: 
+    55: <div class="courses">
+    56:   <%= render :partial => '/courses' %>
+    57: 
+    58: 
+    59: </div><!--/courses-->
+  
+app/views/user_profiles/index.html.erb:56:in `_app_views_user_profiles_index_html_erb__2362245002470817683_70131013491200'
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 16:08:17 -0600
+Processing by UserProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.1ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."user_id" = ?[0m  [["user_id", 26]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendered user_profiles/index.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Missing partial /_courses with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/ChrisLam/empowerpro/app/views"
+  * "/Users/ChrisLam/.rvm/gems/ruby-2.3.1/gems/devise-4.3.0/app/views"
+):
+    53: </table>
+    54: 
+    55: <div class="courses">
+    56:   <%= render :partial => '/courses' %>
+    57: 
+    58: 
+    59: </div><!--/courses-->
+  
+app/views/user_profiles/index.html.erb:56:in `_app_views_user_profiles_index_html_erb__2362245002470817683_70131105230040'
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 16:09:01 -0600
+Processing by UserProfilesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.3ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."user_id" = ?[0m  [["user_id", 26]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendered user_profiles/index.html.erb within layouts/application (8.0ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (Missing partial user_profiles/_courses_index, application/_courses_index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/ChrisLam/empowerpro/app/views"
+  * "/Users/ChrisLam/.rvm/gems/ruby-2.3.1/gems/devise-4.3.0/app/views"
+):
+    53: </table>
+    54: 
+    55: <div class="courses">
+    56:   <%= render 'courses_index' %>
+    57: 
+    58: 
+    59: </div><!--/courses-->
+  
+app/views/user_profiles/index.html.erb:56:in `_app_views_user_profiles_index_html_erb__2362245002470817683_70131108067800'
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 16:09:13 -0600
+Processing by UserProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.3ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."user_id" = ?[0m  [["user_id", 26]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendered user_profiles/index.html.erb within layouts/application (7.9ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (Missing partial user_profiles/_courses_index, application/_courses_index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/ChrisLam/empowerpro/app/views"
+  * "/Users/ChrisLam/.rvm/gems/ruby-2.3.1/gems/devise-4.3.0/app/views"
+):
+    53: </table>
+    54: 
+    55: <div class="courses">
+    56:   <%= render 'courses_index' %>
+    57: 
+    58: 
+    59: </div><!--/courses-->
+  
+app/views/user_profiles/index.html.erb:56:in `_app_views_user_profiles_index_html_erb__2362245002470817683_70131074356320'
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 16:09:16 -0600
+Processing by UserProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."user_id" = ?[0m  [["user_id", 26]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendered user_profiles/index.html.erb within layouts/application (8.0ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Missing partial user_profiles/_courses_index, application/_courses_index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/ChrisLam/empowerpro/app/views"
+  * "/Users/ChrisLam/.rvm/gems/ruby-2.3.1/gems/devise-4.3.0/app/views"
+):
+    53: </table>
+    54: 
+    55: <div class="courses">
+    56:   <%= render 'courses_index' %>
+    57: 
+    58: 
+    59: </div><!--/courses-->
+  
+app/views/user_profiles/index.html.erb:56:in `_app_views_user_profiles_index_html_erb__2362245002470817683_70131102095100'
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 16:10:32 -0600
+Processing by UserProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.1ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."user_id" = ?[0m  [["user_id", 26]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendered user_profiles/_courses_index.html.erb (2.8ms)
+  Rendered user_profiles/index.html.erb within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    11:   </thead>
+    12: 
+    13:   <tbody>
+    14:     <% @courses.each do |course| %>
+    15:       <tr>
+    16:         <td><%= course.name %></td>
+    17:         <td><%= link_to 'Show', course %></td>
+  
+app/views/user_profiles/_courses_index.html.erb:14:in `_app_views_user_profiles__courses_index_html_erb___3245318063773179174_70131066800980'
+app/views/user_profiles/index.html.erb:56:in `_app_views_user_profiles_index_html_erb__2362245002470817683_70131067083200'
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 16:10:58 -0600
+Processing by UserProfilesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."user_id" = ?[0m  [["user_id", 26]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered user_profiles/_courses_index.html.erb (5.1ms)
+  Rendered user_profiles/index.html.erb within layouts/application (52.6ms)
+Completed 200 OK in 118ms (Views: 96.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2017-11-17 16:11:15 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mLesson Load (0.2ms)[0m  [1m[34mSELECT "lessons".* FROM "lessons" WHERE "lessons"."course_id" = ?[0m  [["course_id", 1]]
+  Rendered courses/show.html.erb within layouts/application (14.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 64ms (Views: 59.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/user_profiles/2/edit" for 127.0.0.1 at 2017-11-17 16:11:25 -0600
+Processing by UserProfilesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUserProfile Load (0.3ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering user_profiles/edit.html.erb within layouts/application
+  Rendered user_profiles/_form.html.erb (7.5ms)
+  Rendered user_profiles/edit.html.erb within layouts/application (9.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 53ms (Views: 49.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 16:11:27 -0600
+Processing by UserProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.3ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."user_id" = ?[0m  [["user_id", 26]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered user_profiles/_courses_index.html.erb (1.5ms)
+  Rendered user_profiles/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 56ms (Views: 51.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/user_profiles/2/edit" for 127.0.0.1 at 2017-11-17 16:11:38 -0600
+Processing by UserProfilesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUserProfile Load (0.1ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering user_profiles/edit.html.erb within layouts/application
+  Rendered user_profiles/_form.html.erb (6.9ms)
+  Rendered user_profiles/edit.html.erb within layouts/application (8.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 60ms (Views: 57.2ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/user_profiles/2" for 127.0.0.1 at 2017-11-17 16:11:42 -0600
+Processing by UserProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o5cPS3FAHjEj0s2Bxr73wgNBDneLDmFB3X+6NZKiLfef5CA76cOY4ilwNPR9WhX1r2RksdtcPj6w3Us/tlwiYw==", "user_profile"=>{"sponsor_profile_id"=>"10", "first_name"=>"Marty", "last_name"=>"MCUser", "phone_number"=>"", "street"=>"", "city"=>"", "state"=>"", "zip"=>"", "contact_time"=>"", "credit_assessment"=>"0", "credit_debt"=>"0", "credit_score_above"=>"0", "tos"=>"0"}, "commit"=>"Submit", "id"=>"2"}
+  [1m[36mUserProfile Load (0.1ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "user_profiles" SET "sponsor_profile_id" = ?, "updated_at" = ? WHERE "user_profiles"."id" = ?[0m  [["sponsor_profile_id", 10], ["updated_at", "2017-11-17 22:11:42.008909"], ["id", 2]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/user_profiles
+Completed 302 Found in 12ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 16:11:42 -0600
+Processing by UserProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."user_id" = ?[0m  [["user_id", 26]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered user_profiles/_courses_index.html.erb (1.1ms)
+  Rendered user_profiles/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 57ms (Views: 53.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/user_profiles/2/edit" for 127.0.0.1 at 2017-11-17 16:11:50 -0600
+Processing by UserProfilesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUserProfile Load (0.1ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering user_profiles/edit.html.erb within layouts/application
+  Rendered user_profiles/_form.html.erb (6.9ms)
+  Rendered user_profiles/edit.html.erb within layouts/application (8.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 53ms (Views: 50.9ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/user_profiles/2" for 127.0.0.1 at 2017-11-17 16:11:53 -0600
+Processing by UserProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GvLL6MZQo0m70+2TBeQyCJQNqLFac42vTZIlxgETjzomgeSYXtMlmrFxFOa+ANA/OCjCdwoh0tAgMNTMJe2Arg==", "user_profile"=>{"sponsor_profile_id"=>"1", "first_name"=>"Marty", "last_name"=>"MCUser", "phone_number"=>"", "street"=>"", "city"=>"", "state"=>"", "zip"=>"", "contact_time"=>"", "credit_assessment"=>"0", "credit_debt"=>"0", "credit_score_above"=>"0", "tos"=>"0"}, "commit"=>"Submit", "id"=>"2"}
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering user_profiles/edit.html.erb within layouts/application
+  Rendered user_profiles/_form.html.erb (6.4ms)
+  Rendered user_profiles/edit.html.erb within layouts/application (8.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 53ms (Views: 46.8ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/user_profiles/2" for 127.0.0.1 at 2017-11-17 16:11:58 -0600
+Processing by UserProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/1JmgnqD1RSuUxkyn8TLsLtUTzID9DXAKf53zsWYv15nJMJ2VlNH/csfAhGVdHBGHKg60sLcqK7DOZ1dyQ0UiA==", "user_profile"=>{"sponsor_profile_id"=>"2", "first_name"=>"Marty", "last_name"=>"MCUser", "phone_number"=>"", "street"=>"", "city"=>"", "state"=>"", "zip"=>"", "contact_time"=>"", "credit_assessment"=>"0", "credit_debt"=>"0", "credit_score_above"=>"0", "tos"=>"0"}, "commit"=>"Submit", "id"=>"2"}
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering user_profiles/edit.html.erb within layouts/application
+  Rendered user_profiles/_form.html.erb (6.7ms)
+  Rendered user_profiles/edit.html.erb within layouts/application (8.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 66ms (Views: 60.5ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/user_profiles/2" for 127.0.0.1 at 2017-11-17 16:12:03 -0600
+Processing by UserProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lrPfGydfIivY0WiLoxawTRR/Qj8vPXYWotCVt+iMaMEOxXvvC4+wwr2dc6ippgu7s4M33+4V63hIF38k5BnDFw==", "user_profile"=>{"sponsor_profile_id"=>"3", "first_name"=>"Marty", "last_name"=>"MCUser", "phone_number"=>"", "street"=>"", "city"=>"", "state"=>"", "zip"=>"", "contact_time"=>"", "credit_assessment"=>"0", "credit_debt"=>"0", "credit_score_above"=>"0", "tos"=>"0"}, "commit"=>"Submit", "id"=>"2"}
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering user_profiles/edit.html.erb within layouts/application
+  Rendered user_profiles/_form.html.erb (6.3ms)
+  Rendered user_profiles/edit.html.erb within layouts/application (8.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 64ms (Views: 57.9ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/user_profiles/2" for 127.0.0.1 at 2017-11-17 16:12:06 -0600
+Processing by UserProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8B/sjOcwypeCy+Ub0suM5bD2jN4cTNpXaLr5L5NoZNZoaUh4y+BYfueH/jjYezcTFwr5Pt1kRzmCfRO8n/3PAA==", "user_profile"=>{"sponsor_profile_id"=>"12", "first_name"=>"Marty", "last_name"=>"MCUser", "phone_number"=>"", "street"=>"", "city"=>"", "state"=>"", "zip"=>"", "contact_time"=>"", "credit_assessment"=>"0", "credit_debt"=>"0", "credit_score_above"=>"0", "tos"=>"0"}, "commit"=>"Submit", "id"=>"2"}
+  [1m[36mUserProfile Load (0.4ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "user_profiles" SET "sponsor_profile_id" = ?, "updated_at" = ? WHERE "user_profiles"."id" = ?[0m  [["sponsor_profile_id", 12], ["updated_at", "2017-11-17 22:12:06.513847"], ["id", 2]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/user_profiles
+Completed 302 Found in 11ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 16:12:06 -0600
+Processing by UserProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."user_id" = ?[0m  [["user_id", 26]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered user_profiles/_courses_index.html.erb (1.2ms)
+  Rendered user_profiles/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 57ms (Views: 53.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 16:12:16 -0600
+Processing by UserProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.3ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."user_id" = ?[0m  [["user_id", 26]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered user_profiles/_courses_index.html.erb (1.3ms)
+  Rendered user_profiles/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 54ms (Views: 50.4ms | ActiveRecord: 0.8ms)
+
+
