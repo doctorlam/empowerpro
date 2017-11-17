@@ -6321,3 +6321,456 @@ Processing by SponsorProfilesController#index as HTML
 Completed 200 OK in 46ms (Views: 42.6ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-11-17 12:51:17 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#dashboard as HTML
+  Rendering pages/dashboard.html.erb within layouts/application
+  Rendered pages/dashboard.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+Completed 200 OK in 364ms (Views: 352.6ms | ActiveRecord: 0.8ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddSponsorProfileIdToUserProfile (20171117185313)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "user_profiles" ADD "sponsor_profile_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171117185313"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-11-17 12:54:15 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#dashboard as HTML
+  Rendering pages/dashboard.html.erb within layouts/application
+  Rendered pages/dashboard.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+Completed 200 OK in 78ms (Views: 73.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/sponsor_profiles" for 127.0.0.1 at 2017-11-17 12:54:16 -0600
+Processing by SponsorProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  Rendering sponsor_profiles/index.html.erb within layouts/application
+  [1m[36mSponsorProfile Load (0.2ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."user_id" = ?[0m  [["user_id", 23]]
+  Rendered sponsor_profiles/index.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 63ms (Views: 54.2ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/sponsor_profiles/6" for 127.0.0.1 at 2017-11-17 12:54:21 -0600
+Processing by SponsorProfilesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"c2L2IZ0vp9MlZMR2M/Ex1PxlEAlydrXm4GqJ/22a0+XdZ+VK6J6rguXOFxBwlIx0L08VuuIzL/6jjmZuijq7Nw==", "id"=>"6"}
+  [1m[36mSponsorProfile Load (0.2ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ?[0m  [["id", 6]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/sponsor_profiles
+Completed 302 Found in 8ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/sponsor_profiles" for 127.0.0.1 at 2017-11-17 12:54:21 -0600
+Processing by SponsorProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  Rendering sponsor_profiles/index.html.erb within layouts/application
+  [1m[36mSponsorProfile Load (0.2ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."user_id" = ?[0m  [["user_id", 23]]
+  Rendered sponsor_profiles/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 49ms (Views: 45.8ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/sponsor_profiles/5" for 127.0.0.1 at 2017-11-17 12:54:23 -0600
+Processing by SponsorProfilesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IGRhDEMs4P45Oh4MlqCTZZQFUjvu7r5fNee2e6Th0rqOYXJnNp3sr/mQzWrVxS7FRy9XiH6rJEd2A1nqQ0G6aA==", "id"=>"5"}
+  [1m[36mSponsorProfile Load (0.2ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ?[0m  [["id", 5]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/sponsor_profiles
+Completed 302 Found in 5ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/sponsor_profiles" for 127.0.0.1 at 2017-11-17 12:54:23 -0600
+Processing by SponsorProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  Rendering sponsor_profiles/index.html.erb within layouts/application
+  [1m[36mSponsorProfile Load (0.2ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."user_id" = ?[0m  [["user_id", 23]]
+  Rendered sponsor_profiles/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 42ms (Views: 40.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/sponsor_profiles/4" for 127.0.0.1 at 2017-11-17 12:54:25 -0600
+Processing by SponsorProfilesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSponsorProfile Load (0.2ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering sponsor_profiles/show.html.erb within layouts/application
+  Rendered sponsor_profiles/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+Completed 200 OK in 48ms (Views: 45.2ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-11-17 12:54:26 -0600
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"YFqQAV9qRb+94Vkui1hC5TMjBHsYco0hKLXd3jOs8KjOX4NqKttJ7n1LikjIPf9F4AkByIg3FzlrUTJP1AyYeg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 12ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-11-17 12:54:26 -0600
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 58ms (Views: 53.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sponsor_profiles" for 127.0.0.1 at 2017-11-17 12:56:23 -0600
+Processing by SponsorProfilesController#index as HTML
+Completed 500 Internal Server Error in 6ms
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/sponsor_profiles_controller.rb:7:in `index'
+Started GET "/sponsor_profiles/4" for 127.0.0.1 at 2017-11-17 12:56:33 -0600
+Processing by SponsorProfilesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering sponsor_profiles/show.html.erb within layouts/application
+  Rendered sponsor_profiles/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 55ms (Views: 39.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/sponsor_profiles/4/edit" for 127.0.0.1 at 2017-11-17 12:56:35 -0600
+Processing by SponsorProfilesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSponsorProfile Load (0.2ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering sponsor_profiles/edit.html.erb within layouts/application
+  Rendered sponsor_profiles/_form.html.erb (8.0ms)
+  Rendered sponsor_profiles/edit.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 52ms (Views: 49.1ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/sponsor_profiles/4" for 127.0.0.1 at 2017-11-17 12:56:37 -0600
+Processing by SponsorProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xmD12p5LM83fNOUsoRD7aHQyQ4EKfM269XosN+nU9sZVv7zDfzaqfo3nKqUEC1/jYUUceGrLKWFZEc1CxddQkA==", "sponsor_profile"=>{"first_name"=>"CHris ", "last_name"=>"Lam", "organization_name"=>"AT&T", "phone_number"=>"", "street"=>"", "city"=>"", "zip"=>"", "employee_count"=>"", "contact_time"=>"", "tos"=>"0"}, "commit"=>"Update Sponsor profile", "id"=>"4"}
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/sponsor_profiles/4
+Completed 302 Found in 34ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/sponsor_profiles/4" for 127.0.0.1 at 2017-11-17 12:56:37 -0600
+Processing by SponsorProfilesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering sponsor_profiles/show.html.erb within layouts/application
+  Rendered sponsor_profiles/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 37ms (Views: 35.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/sponsor_profiles" for 127.0.0.1 at 2017-11-17 12:56:42 -0600
+Processing by SponsorProfilesController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/sponsor_profiles_controller.rb:7:in `index'
+Started GET "/" for 127.0.0.1 at 2017-11-17 12:57:16 -0600
+Processing by PagesController#dashboard as HTML
+  Rendering pages/dashboard.html.erb within layouts/application
+  Rendered pages/dashboard.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 37ms (Views: 35.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mSponsorProfile Load (1.0ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ?[0m  [["id", 2]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ?[0m  [["id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ?[0m  [["id", 4]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ?[0m  [["id", 9]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUserProfile Load (0.4ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "user_profiles" WHERE "user_profiles"."id" = ?[0m  [["id", 1]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-11-17 12:57:50 -0600
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 52ms (Views: 51.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-11-17 12:57:57 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"esna2IMw0t8wt/MqUv7jsQi/cAjRspfiM9pOhkmcckuwVyLQkezK9ZbSSqFGSv2P+HCvn1KA2MCeD6t+rVgveg==", "user"=>{"email"=>"sponsor@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"sponsor"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sponsor@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 219ms (Views: 50.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-11-17 12:58:09 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"btnJQjee8/k50fvan7u559wbrBky6U5hv6y2DePLIwIXyedouB99lZle0Ajb1bT2HxH8gzRwj5Tgkr5ehuGxfQ==", "user"=>{"email"=>"sponsor123@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"sponsor"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sponsor123@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "role") VALUES (?, ?, ?, ?, ?)[0m  [["email", "sponsor123@gmail.com"], ["encrypted_password", "$2a$11$LYmK6NTnFADZYZMZyXQSs.mIdBWMXm9xYJej2Rt7/wZOABFNBYlgi"], ["created_at", "2017-11-17 18:58:09.860759"], ["updated_at", "2017-11-17 18:58:09.860759"], ["role", "sponsor"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-11-17 18:58:09.865086"], ["last_sign_in_at", "2017-11-17 18:58:09.865086"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-11-17 18:58:09.865649"], ["id", 25]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/sponsor_profiles/new
+Completed 302 Found in 152ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/sponsor_profiles/new" for 127.0.0.1 at 2017-11-17 12:58:09 -0600
+Processing by SponsorProfilesController#new as HTML
+  Rendering sponsor_profiles/new.html.erb within layouts/application
+  Rendered sponsor_profiles/_form.html.erb (5.6ms)
+  Rendered sponsor_profiles/new.html.erb within layouts/application (7.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+Completed 200 OK in 51ms (Views: 49.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/sponsor_profiles" for 127.0.0.1 at 2017-11-17 12:58:21 -0600
+Processing by SponsorProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HUO3/RO4eWjjegCJAlldoOQM8iw7tsL74LzhNPQDuzBkU5nXnDn3BEP1K1tGN1CxJwaitj0vAw6/gulnkSkpTw==", "sponsor_profile"=>{"first_name"=>"New ", "last_name"=>"Sponsor", "organization_name"=>"ABC Land", "phone_number"=>"", "street"=>"", "city"=>"", "zip"=>"", "employee_count"=>"", "contact_time"=>"", "tos"=>"0"}, "commit"=>"Create Sponsor profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "sponsor_profiles" ("first_name", "last_name", "organization_name", "phone_number", "street", "city", "zip", "contact_time", "tos", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "New "], ["last_name", "Sponsor"], ["organization_name", "ABC Land"], ["phone_number", ""], ["street", ""], ["city", ""], ["zip", ""], ["contact_time", ""], ["tos", "f"], ["created_at", "2017-11-17 18:58:21.167353"], ["updated_at", "2017-11-17 18:58:21.167353"], ["user_id", 25]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/sponsor_profiles/10
+Completed 302 Found in 8ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/sponsor_profiles/10" for 127.0.0.1 at 2017-11-17 12:58:21 -0600
+Processing by SponsorProfilesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering sponsor_profiles/show.html.erb within layouts/application
+  Rendered sponsor_profiles/show.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 47.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sponsor_profiles" for 127.0.0.1 at 2017-11-17 12:58:23 -0600
+Processing by SponsorProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering sponsor_profiles/index.html.erb within layouts/application
+  [1m[36mSponsorProfile Load (0.2ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."user_id" = ?[0m  [["user_id", 25]]
+  Rendered sponsor_profiles/index.html.erb within layouts/application (255.8ms)
+Completed 500 Internal Server Error in 263ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `sponsor_profile_id' for #<#<Class:0x007ff3785ab0e0>:0x007ff3808901e0>
+Did you mean?  sponsor_profile
+               sponsor_profile_url
+               sponsor_profiles_url
+               sponsor_profile_path
+               sponsor_profiles_path
+               @sponsor_profiles):
+    21: 
+    22:   <tbody>
+    23:     <% @sponsor_profiles.each do |sponsor_profile| %>
+    24:       <h1>Your Unique ID: <%=sponsor_profile_id %></h1>
+    25:       <tr>
+    26:         <td><%= sponsor_profile.first_name %></td>
+    27:         <td><%= sponsor_profile.last_name %></td>
+  
+app/views/sponsor_profiles/index.html.erb:24:in `block in _app_views_sponsor_profiles_index_html_erb___2211343770542499180_70341905122920'
+app/views/sponsor_profiles/index.html.erb:23:in `_app_views_sponsor_profiles_index_html_erb___2211343770542499180_70341905122920'
+Started GET "/sponsor_profiles" for 127.0.0.1 at 2017-11-17 12:58:57 -0600
+Processing by SponsorProfilesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering sponsor_profiles/index.html.erb within layouts/application
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."user_id" = ?[0m  [["user_id", 25]]
+  Rendered sponsor_profiles/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 61ms (Views: 57.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/sponsor_profiles/10" for 127.0.0.1 at 2017-11-17 12:59:43 -0600
+Processing by SponsorProfilesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering sponsor_profiles/show.html.erb within layouts/application
+  Rendered sponsor_profiles/show.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+Completed 200 OK in 50ms (Views: 47.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/sponsor_profiles" for 127.0.0.1 at 2017-11-17 12:59:45 -0600
+Processing by SponsorProfilesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering sponsor_profiles/index.html.erb within layouts/application
+  [1m[36mSponsorProfile Load (0.2ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."user_id" = ?[0m  [["user_id", 25]]
+  Rendered sponsor_profiles/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 56ms (Views: 51.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sponsor_profiles/10" for 127.0.0.1 at 2017-11-17 12:59:51 -0600
+Processing by SponsorProfilesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering sponsor_profiles/show.html.erb within layouts/application
+  Rendered sponsor_profiles/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+Completed 200 OK in 61ms (Views: 58.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sponsor_profiles" for 127.0.0.1 at 2017-11-17 12:59:53 -0600
+Processing by SponsorProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering sponsor_profiles/index.html.erb within layouts/application
+  [1m[36mSponsorProfile Load (0.2ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."user_id" = ?[0m  [["user_id", 25]]
+  Rendered sponsor_profiles/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 55ms (Views: 51.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sponsor_profiles/10" for 127.0.0.1 at 2017-11-17 12:59:59 -0600
+Processing by SponsorProfilesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering sponsor_profiles/show.html.erb within layouts/application
+  Rendered sponsor_profiles/show.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 46.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/sponsor_profiles" for 127.0.0.1 at 2017-11-17 13:00:01 -0600
+Processing by SponsorProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering sponsor_profiles/index.html.erb within layouts/application
+  [1m[36mSponsorProfile Load (0.3ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."user_id" = ?[0m  [["user_id", 25]]
+  Rendered sponsor_profiles/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 56ms (Views: 51.9ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-11-17 13:00:06 -0600
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"JKGu7mneX/89Tg0XHfAexNFxK2f8+jP8pIr1X/x+d7ddsYDE5l/Rk53BJsVZnhPVEnt7/fpj8gn7tP0MmVTlyA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-11-17 13:00:06 -0600
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 58ms (Views: 56.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-11-17 13:00:15 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wfbu4IZM3ZA101iMgQ32PRaVwoy3yyNvRY/IytvdZ2DzkzurpivnPqciDT5J96rCfPcLX0Ie9TvLemN4AXULvQ==", "user"=>{"email"=>"user@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"user"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "role") VALUES (?, ?, ?, ?, ?)[0m  [["email", "user@gmail.com"], ["encrypted_password", "$2a$11$YPtodx8g4dFOTFnmVUzZxu7w.PTCUCZhJ0RjsJnnNVmHP7pV/k3OK"], ["created_at", "2017-11-17 19:00:15.581255"], ["updated_at", "2017-11-17 19:00:15.581255"], ["role", "user"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-11-17 19:00:15.585378"], ["last_sign_in_at", "2017-11-17 19:00:15.585378"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-11-17 19:00:15.586037"], ["id", 26]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/user_profiles/new
+Completed 302 Found in 158ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/user_profiles/new" for 127.0.0.1 at 2017-11-17 13:00:15 -0600
+Processing by UserProfilesController#new as HTML
+  Rendering user_profiles/new.html.erb within layouts/application
+  Rendered user_profiles/_form.html.erb (6.0ms)
+  Rendered user_profiles/new.html.erb within layouts/application (7.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 78ms (Views: 55.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/user_profiles" for 127.0.0.1 at 2017-11-17 13:00:26 -0600
+Processing by UserProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QrrfsBZSgQ0beeoEZ9Cc5xiurHAab8QEQZ35HHNEGMJw3wr7NjW7o4mIv7avKsAYcsxlo++6ElDPaFKuqex0Hw==", "user_profile"=>{"first_name"=>"Marty", "last_name"=>"MCUser", "sponsor_profile_id"=>"10", "email"=>"", "phone_number"=>"", "street"=>"", "city"=>"", "state"=>"", "zip"=>"", "contact_time"=>"", "credit_assessment"=>"0", "credit_debt"=>"0", "credit_score_above"=>"0", "tos"=>"0"}, "commit"=>"Create User profile"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "user_profiles" ("first_name", "last_name", "email", "phone_number", "street", "city", "state", "zip", "contact_time", "credit_assessment", "credit_debt", "credit_score_above", "tos", "created_at", "updated_at", "user_id", "sponsor_profile_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Marty"], ["last_name", "MCUser"], ["email", ""], ["phone_number", ""], ["street", ""], ["city", ""], ["state", ""], ["zip", ""], ["contact_time", ""], ["credit_assessment", "f"], ["credit_debt", "f"], ["credit_score_above", "f"], ["tos", "f"], ["created_at", "2017-11-17 19:00:26.826426"], ["updated_at", "2017-11-17 19:00:26.826426"], ["user_id", 26], ["sponsor_profile_id", 10]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/user_profiles/2
+Completed 302 Found in 12ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/user_profiles/2" for 127.0.0.1 at 2017-11-17 13:00:26 -0600
+Processing by UserProfilesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering user_profiles/show.html.erb within layouts/application
+  Rendered user_profiles/show.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 65ms (Views: 62.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 13:01:19 -0600
+Processing by UserProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."user_id" = ?[0m  [["user_id", 26]]
+  Rendered user_profiles/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 49ms (Views: 45.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/user_profiles/2" for 127.0.0.1 at 2017-11-17 13:01:47 -0600
+Processing by UserProfilesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUserProfile Load (0.1ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering user_profiles/show.html.erb within layouts/application
+  Rendered user_profiles/show.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 52ms (Views: 49.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/user_profiles" for 127.0.0.1 at 2017-11-17 13:01:51 -0600
+Processing by UserProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering user_profiles/index.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."user_id" = ?[0m  [["user_id", 26]]
+  Rendered user_profiles/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 53ms (Views: 49.6ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUserProfile Load (0.3ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" ORDER BY "user_profiles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]

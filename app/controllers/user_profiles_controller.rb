@@ -70,6 +70,6 @@ class UserProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_profile_params
-      params.require(:user_profile).permit(:user_id, :first_name, :last_name, :sponsor_id, :email, :phone_number, :street, :city, :state, :zip, :contact_time, :credit_assessment, :credit_debt, :credit_score_above, :tos)
+      params.require(:user_profile).permit(:sponsor_profile_id, :user_id, :first_name, :last_name, :sponsor_id, :email, :phone_number, :street, :city, :state, :zip, :contact_time, :credit_assessment, :credit_debt, :credit_score_above, :tos)
     end
 end

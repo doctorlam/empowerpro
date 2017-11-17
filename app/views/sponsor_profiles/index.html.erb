@@ -21,6 +21,7 @@
 
   <tbody>
     <% @sponsor_profiles.each do |sponsor_profile| %>
+      <h1>Your Unique ID: <%= sponsor_profile.id %></h1>
       <tr>
         <td><%= sponsor_profile.first_name %></td>
         <td><%= sponsor_profile.last_name %></td>
