@@ -61,6 +61,18 @@
     <%= form.label :tos %>
     <%= form.check_box :tos, id: :sponsor_profile_tos %>
   </div>
+  <label>Your Logo</label>
+    <%= image_tag @sponsor_profile.logo_url(:thumb) if @sponsor_profile.logo? %>
+    <%= form.file_field :logo %>
+  </p>
+
+  <p>
+    <label>
+      <%= form.check_box :remove_logo %>
+      Remove logo
+    </label>
+  </p>
+
 
   <div class="actions">
     <%= form.submit %>

@@ -8,7 +8,6 @@ class PagesController < ApplicationController
  end 
 
   def dashboard
-  	@user_profiles = @sponsor.user_profiles
   end
 
 end

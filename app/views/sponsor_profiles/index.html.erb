@@ -1,6 +1,8 @@
 <div class="container-fluid">
 <p id="notice"><%= notice %></p>
-
+<% @sponsor_profiles.each do |sponsor_profile| %>
+  <%= image_tag sponsor_profile.logo_url(:thumb) if sponsor_profile.logo? %>
+<% end %>
 <h1><%= @current_user.sponsor_profile.organization_name %>'s Sponsor Profile</h1>
 
 <div class="col-md-6">

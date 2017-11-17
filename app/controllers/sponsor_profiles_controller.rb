@@ -11,6 +11,8 @@ class SponsorProfilesController < ApplicationController
   # GET /sponsor_profiles/1
   # GET /sponsor_profiles/1.json
   def show
+      @sponsor_profiles = SponsorProfile.where(:user_id => current_user.id)
+    @user_profiles = UserProfile.all
   end
 
   # GET /sponsor_profiles/new
@@ -71,6 +73,6 @@ class SponsorProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sponsor_profile_params
-      params.require(:sponsor_profile).permit(:user_id, :first_name, :last_name, :organization_name, :phone_number, :street, :city, :zip, :employee_count, :contact_time, :tos)
+      params.require(:sponsor_profile).permit(:logo, :user_id, :first_name, :last_name, :organization_name, :phone_number, :street, :city, :zip, :employee_count, :contact_time, :tos)
     end
 end
