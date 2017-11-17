@@ -32,8 +32,8 @@ class SponsorProfilesController < ApplicationController
 
     respond_to do |format|
       if @sponsor_profile.save
-        format.html { redirect_to @sponsor_profile, notice: 'Sponsor profile was successfully created.' }
-        format.json { render :show, status: :created, location: @sponsor_profile }
+        format.html { redirect_to sponsor_profiles_path, notice: 'Sponsor profile was successfully created.' }
+        format.json { render :show, status: :created, location: sponsor_profiles_path }
       else
         format.html { render :new }
         format.json { render json: @sponsor_profile.errors, status: :unprocessable_entity }
@@ -46,8 +46,8 @@ class SponsorProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @sponsor_profile.update(sponsor_profile_params)
-        format.html { redirect_to @sponsor_profile, notice: 'Sponsor profile was successfully updated.' }
-        format.json { render :show, status: :ok, location: @sponsor_profile }
+        format.html { redirect_to sponsor_profiles_path, notice: 'Sponsor profile was successfully updated.' }
+        format.json { render :show, status: :ok, location: sponsor_profiles_path }
       else
         format.html { render :edit }
         format.json { render json: @sponsor_profile.errors, status: :unprocessable_entity }

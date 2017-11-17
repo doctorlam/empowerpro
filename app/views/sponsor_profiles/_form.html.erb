@@ -11,6 +11,10 @@
       </ul>
     </div>
   <% end %>
+<div class="field">
+    <%= form.label :organization_name %>
+    <%= form.text_area :organization_name, id: :sponsor_profile_organization_name,class: 'form-control', :required => 'true' %>
+  </div>
 
   <div class="form-field">
     <%= form.label :first_name %>
@@ -23,17 +27,12 @@
   </div>
 
   <div class="field">
-    <%= form.label :organization_name %>
-    <%= form.text_area :organization_name, id: :sponsor_profile_organization_name,class: 'form-control' %>
-  </div>
-
-  <div class="field">
     <%= form.label :phone_number %>
     <%= form.text_field :phone_number, id: :sponsor_profile_phone_number,class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :street %>
+    <%= form.label :street, "Address" %>
     <%= form.text_field :street, id: :sponsor_profile_street,class: 'form-control' %>
   </div>
 

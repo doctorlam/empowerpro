@@ -11,53 +11,49 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-field">
+    <%= form.label :sponsor_profile_id, "Enter Unique Sponsor ID" %>
+    <%= form.number_field :sponsor_profile_id, class: 'form-control', :required => true %>
+  </div>
+  <br>
+  <div class="form-field">
     <%= form.label :first_name %>
     <%= form.text_field :first_name, id: :user_profile_first_name, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-field">
     <%= form.label :last_name %>
     <%= form.text_field :last_name, id: :user_profile_last_name, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :sponsor_profile_id %>
-    <%= form.number_field :sponsor_profile_id, class: 'form-control' %>
-  </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :user_profile_email, class: 'form-control' %>
-  </div>
-
-  <div class="field">
+  <div class="form-field">
     <%= form.label :phone_number %>
     <%= form.text_field :phone_number, id: :user_profile_phone_number, class: 'form-control'%>
   </div>
 
-  <div class="field">
-    <%= form.label :street %>
+  <div class="form-field">
+    <%= form.label :street, "Address" %>
     <%= form.text_field :street, id: :user_profile_street, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-field">
     <%= form.label :city %>
     <%= form.text_field :city, id: :user_profile_city, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-field">
     <%= form.label :state %>
     <%= form.text_field :state, id: :user_profile_state, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-field">
     <%= form.label :zip %>
     <%= form.text_field :zip, id: :user_profile_zip, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :contact_time %>
+    <%= form.label :contact_time, "What is your preferred contact tiime?" %>
     <%= form.text_field :contact_time, id: :user_profile_contact_time, class: 'form-control' %>
   </div>
 
