@@ -9,9 +9,9 @@ class ApplicationController < ActionController::Base
   end
    def after_sign_in_path_for(user) 
    		if user.role == 'sponsor'
-   			 new_sponsor_profile_path
+   			 sponsor_profiles_path
    		else
-   			new_user_profile_path
+   			user_profiles_path
   		end
 	end
 
