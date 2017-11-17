@@ -4,7 +4,8 @@ class SponsorProfilesController < ApplicationController
   # GET /sponsor_profiles
   # GET /sponsor_profiles.json
   def index
-    @sponsor_profiles = SponsorProfile.all
+    @sponsor_profiles = SponsorProfile.where(:user_id => current_user.id)
+
   end
 
   # GET /sponsor_profiles/1
@@ -14,7 +15,7 @@ class SponsorProfilesController < ApplicationController
 
   # GET /sponsor_profiles/new
   def new
-    @sponsor_profile = SponsorProfile.new
+    @sponsor_profile = SponsorProfile.new(:user => @current_user)
   end
 
   # GET /sponsor_profiles/1/edit
@@ -25,6 +26,7 @@ class SponsorProfilesController < ApplicationController
   # POST /sponsor_profiles.json
   def create
     @sponsor_profile = SponsorProfile.new(sponsor_profile_params)
+    @sponsor_profile.user_id = current_user.id
 
     respond_to do |format|
       if @sponsor_profile.save
@@ -69,6 +71,6 @@ class SponsorProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sponsor_profile_params
-      params.require(:sponsor_profile).permit(:first_name, :last_name, :organization_name, :phone_number, :street, :city, :zip, :employee_count, :contact_time, :tos)
+      params.require(:sponsor_profile).permit(:user_id, :first_name, :last_name, :organization_name, :phone_number, :street, :city, :zip, :employee_count, :contact_time, :tos)
     end
 end

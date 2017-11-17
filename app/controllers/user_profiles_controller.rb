@@ -4,7 +4,7 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles
   # GET /user_profiles.json
   def index
-    @user_profiles = UserProfile.all
+    @user_profiles = UserProfile.where(:user_id => current_user.id)
   end
 
   # GET /user_profiles/1
@@ -14,7 +14,7 @@ class UserProfilesController < ApplicationController
 
   # GET /user_profiles/new
   def new
-    @user_profile = UserProfile.new
+    @user_profile = UserProfile.new(:user => @current_user)
   end
 
   # GET /user_profiles/1/edit
@@ -25,6 +25,7 @@ class UserProfilesController < ApplicationController
   # POST /user_profiles.json
   def create
     @user_profile = UserProfile.new(user_profile_params)
+    @user_profile.user_id = current_user.id
 
     respond_to do |format|
       if @user_profile.save
@@ -69,6 +70,6 @@ class UserProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_profile_params
-      params.require(:user_profile).permit(:first_name, :last_name, :sponsor_id, :email, :phone_number, :street, :city, :state, :zip, :contact_time, :credit_assessment, :credit_debt, :credit_score_above, :tos)
+      params.require(:user_profile).permit(:user_id, :first_name, :last_name, :sponsor_id, :email, :phone_number, :street, :city, :state, :zip, :contact_time, :credit_assessment, :credit_debt, :credit_score_above, :tos)
     end
 end

@@ -3,7 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+    has_one :sponsor_profile
+    has_one :user_profile
    	has_many :roles
  	 def role?(base_role)
   		ROLES.index(base_role.to_s) <= ROLES.index(role)
