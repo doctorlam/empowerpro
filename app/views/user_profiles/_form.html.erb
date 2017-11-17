@@ -13,76 +13,76 @@
 
   <div class="field">
     <%= form.label :first_name %>
-    <%= form.text_field :first_name, id: :user_profile_first_name %>
+    <%= form.text_field :first_name, id: :user_profile_first_name, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :last_name %>
-    <%= form.text_field :last_name, id: :user_profile_last_name %>
+    <%= form.text_field :last_name, id: :user_profile_last_name, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :sponsor_profile_id %>
-    <%= form.number_field :sponsor_profile_id %>
+    <%= form.number_field :sponsor_profile_id, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email, id: :user_profile_email %>
+    <%= form.text_field :email, id: :user_profile_email, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :phone_number %>
-    <%= form.text_field :phone_number, id: :user_profile_phone_number %>
+    <%= form.text_field :phone_number, id: :user_profile_phone_number, class: 'form-control'%>
   </div>
 
   <div class="field">
     <%= form.label :street %>
-    <%= form.text_field :street, id: :user_profile_street %>
+    <%= form.text_field :street, id: :user_profile_street, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :city %>
-    <%= form.text_field :city, id: :user_profile_city %>
+    <%= form.text_field :city, id: :user_profile_city, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :state %>
-    <%= form.text_field :state, id: :user_profile_state %>
+    <%= form.text_field :state, id: :user_profile_state, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :zip %>
-    <%= form.text_field :zip, id: :user_profile_zip %>
+    <%= form.text_field :zip, id: :user_profile_zip, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :contact_time %>
-    <%= form.text_field :contact_time, id: :user_profile_contact_time %>
+    <%= form.text_field :contact_time, id: :user_profile_contact_time, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :credit_assessment %>
-    <%= form.check_box :credit_assessment, id: :user_profile_credit_assessment %>
+    <%= form.check_box :credit_assessment, id: :user_profile_credit_assessment, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :credit_debt %>
-    <%= form.check_box :credit_debt, id: :user_profile_credit_debt %>
+    <%= form.check_box :credit_debt, id: :user_profile_credit_debt, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :credit_score_above %>
-    <%= form.check_box :credit_score_above, id: :user_profile_credit_score_above %>
+    <%= form.check_box :credit_score_above, id: :user_profile_credit_score_above, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :tos %>
-    <%= form.check_box :tos, id: :user_profile_tos %>
+    <%= form.check_box :tos, id: :user_profile_tos, class: 'form-control' %>
   </div>
 
  
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Submit", class: 'form-control' %>
   </div>
 <% end %>

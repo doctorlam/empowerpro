@@ -1,11 +1,14 @@
-<div class="container-fluid">
+<div class="container">
 <p id="notice"><%= notice %></p>
-
+<div class="row">
   <% @user_profiles.each do |user_profile| %>
     <h1>Dashboard for <%= user_profile.first_name %></h1>
     <h2><%= user_profile.sponsor_profile.organization_name %></h2>
     <%= image_tag user_profile.sponsor_profile.logo.url(:thumb) %>
   <% end %>
+</div>
+<div class="row">
+<div class="col-md-6">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -22,7 +25,6 @@
       <th>Credit assessment</th>
       <th>Credit debt</th>
       <th>Credit score above</th>
-      <th>Tos</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -43,13 +45,12 @@
         <td><%= user_profile.credit_assessment %></td>
         <td><%= user_profile.credit_debt %></td>
         <td><%= user_profile.credit_score_above %></td>
-        <td><%= user_profile.tos %></td>
-        <td><%= link_to 'Show', user_profile %></td>
-        <td><%= link_to 'Edit', edit_user_profile_path(user_profile) %></td>
+        <td><%= link_to 'Update Profile', edit_user_profile_path(user_profile) %></td>
         <td><%= link_to 'Destroy', user_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
+</div>
 </div>

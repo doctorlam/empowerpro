@@ -10,19 +10,21 @@
 
   <body>
   	<header>
-  		<nav>
+  		<nav class="navbar navbar-inverse bg-inverse">
+          <a class="navbar-brand" href="#">EmpowerPro</a>
+
   			 <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %> 
             <% if  current_user.role?("user") %>
-                    <li><%= link_to 'User Dashboard', user_profiles_path %></li>
+                    <li class="nav-item"><%= link_to 'User Dashboard', user_profiles_path %></li>
             <% elsif  current_user.role?("sponsor") %>
-                <li><%= link_to 'Sponsor Profile', sponsor_profiles_path %></li>
-                <li><%= link_to 'User Directory', userlist_path %></li>
+                <li class="nav-item"><%= link_to 'Sponsor Profile', sponsor_profiles_path %></li>
+                <li class="nav-item"><%= link_to 'User Directory', userlist_path %></li>
             <% end %>
-                    <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+                    <li class="nav-item"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li class="nav-item">
           <% else %>
-                <li><%= link_to "Register", new_user_registration_path %></li>
-                <li><%= link_to "Sign in", new_user_session_path %></li>
+                <li class="nav-item"><%= link_to "Register", new_user_registration_path %></li>
+                <li class="nav-item"><%= link_to "Sign in", new_user_session_path %></li>
           <% end %>
       </ul>
   		</nav>
