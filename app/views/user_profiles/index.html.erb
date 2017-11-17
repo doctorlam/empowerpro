@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>User Profiles</h1>
+    <% @user_profiles.each do |user_profile| %>
+    <h1>Dashboard for <%= user_profile.first_name %></h1>
+    <h2><%= user_profile.sponsor_profile.organization_name %></h2>
 
+  <% end %>
 <table>
   <thead>
     <tr>
@@ -28,7 +31,7 @@
       <tr>
         <td><%= user_profile.first_name %></td>
         <td><%= user_profile.last_name %></td>
-        <td><%= user_profile.sponsor_profile_id %></td>
+        <td><%= user_profile.sponsor_profile.organization_name %></td>
         <td><%= user_profile.email %></td>
         <td><%= user_profile.phone_number %></td>
         <td><%= user_profile.street %></td>
@@ -48,6 +51,3 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New User Profile', new_user_profile_path %>
