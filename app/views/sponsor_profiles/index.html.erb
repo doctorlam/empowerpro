@@ -1,6 +1,7 @@
+<div class="container-fluid">
 <p id="notice"><%= notice %></p>
 
-<h1>My Sponsor Profile</h1>
+<h1><%= @current_user.sponsor_profile.organization_name %>'s Sponsor Profile</h1>
 
 <div class="col-md-6">
 <table class="table table-striped">
@@ -46,4 +47,4 @@
 </table>
 </div>
 <br>
-
+</div>
