@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :last_name, :role])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :avatar, :phonenumber, :last_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:admin, :name, :last_name, :role])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:admin, :name, :avatar, :phonenumber, :last_name])
 
   end
    def after_sign_in_path_for(user) 
