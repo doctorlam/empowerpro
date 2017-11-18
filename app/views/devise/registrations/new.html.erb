@@ -23,8 +23,8 @@
   </div>
 
   <div class ="form-group">
-    <%= f.label :role, "Are you a client or an instructor?"%>
-    <%= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}) %>
+    <%= f.label :role, "Are you a Sponsor or a User?"%>
+    <%= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}, :include_blank => '--select one--', :required => true) %>
 </div>
   <div class="actions">
     <%= f.submit "Sign up", class: 'form-control btn btn-primary' %>

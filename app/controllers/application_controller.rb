@@ -18,4 +18,8 @@ class ApplicationController < ActionController::Base
 	def after_sign_out_path_for(user)
     	new_user_registration_path
   	end
+  def authorize_admin
+    redirect_to root_path, alert: "You don't have permission"  unless current_user.admin
+
+end
 end

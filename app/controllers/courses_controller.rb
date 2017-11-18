@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+      before_action :authorize_admin, only: [:create, :index, :destroy, :edit]
 
   # GET /courses
   # GET /courses.json
@@ -71,4 +73,5 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:name, lessons_attributes:[:id, :name, :content, :_destroy])
     end
+    
 end
