@@ -16,3 +16,9 @@
 //= require nested_form_fields
 //= require turbolinks
 //= require_tree .
+
+
+/* Fadeout Flash Notice */
+  setTimeout(function() {
+    $('.alert').fadeOut('slow');}, 3000
+  );

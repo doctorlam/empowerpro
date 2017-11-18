@@ -7,5 +7,6 @@ devise_for :users, controllers: { registrations: "registrations" }
   root "pages#dashboard"
     get "dashboard" => "pages#dashboard"
     get "userlist" => "pages#userlist"
+    get "adminpanel" => "pages#adminpanel"
 
 end

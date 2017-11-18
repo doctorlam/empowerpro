@@ -18,7 +18,11 @@
           <% if user_signed_in? %> 
             <% if  current_user.role?("user") %>
                     <li class="nav-item"><%= link_to 'User Dashboard', user_profiles_path %></li>
-            <% elsif  current_user.role?("sponsor") %>
+      
+            <% elsif current_user.admin? %>
+                <li class="nav-item"><%= link_to 'Admin Panel', adminpanel_path %></li>
+
+            <% else %>
                 <li class="nav-item"><%= link_to 'Sponsor Profile', sponsor_profiles_path %></li>
                 <li class="nav-item"><%= link_to 'User Directory', userlist_path %></li>
             <% end %>
@@ -30,6 +34,13 @@
       </ul>
   		</nav>
   	</header>
+     <% if flash[:alert] %>
+    <div class="alert alert-danger"><%= flash[:alert] %></div>
+<% end %>
+<% if flash[:notice] %>
+    <div class ="alert alert-success"><%= flash[:notice] %></div>
+  <% end %>
+
     <%= yield %>
   </body>
 </html>
