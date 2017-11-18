@@ -1,7 +1,6 @@
 class SponsorProfilesController < ApplicationController
   before_action :set_sponsor_profile, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-      before_action :check_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:show, :index, :new, :create, :edit, :update, :destroy]
       before_action :user_is_current_user, only: [:show, :edit, :update, :destroy]
 
   # GET /sponsor_profiles
@@ -79,7 +78,7 @@ class SponsorProfilesController < ApplicationController
       params.require(:sponsor_profile).permit(:logo, :user_id, :first_name, :last_name, :organization_name, :phone_number, :street, :city, :zip, :employee_count, :contact_time, :tos)
     end
   def user_is_current_user
-    unless current_user == @submission.user or current_user.admin
+    unless current_user == @sponsor_profile.user or current_user.admin
       redirect_to(root_url, alert: "You cannot edit this Submission") and return
     end
   end
