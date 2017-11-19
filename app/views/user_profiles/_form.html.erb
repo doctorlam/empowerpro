@@ -12,7 +12,7 @@
     </div>
   <% end %>
   <ul id="progressbar">
-  <% if @user_profile.new_record? %>
+  <% if @user_profile.new_record? or @current_user.admin? %>
 
     <li class="active">Secret Sponsor Key</li>
     <li>Contact Info</li>
@@ -22,7 +22,8 @@
     <li>Opt-in</li>
   <% end %>
   </ul>
-<% if @user_profile.new_record? %>
+
+<% if @user_profile.new_record? or @current_user.admin? %>
 
 <fieldset>
   <div class="form-group">
@@ -35,6 +36,7 @@
 
 </fieldset>
 <% end %>
+
 
 <fieldset>
   <div class="form-group">
@@ -77,7 +79,7 @@
     <%= form.label :contact_time, "What is your preferred contact tiime?" %>
     <%= form.text_field :contact_time, id: :user_profile_contact_time, class: 'form-control' %>
   </div>
-  <% if @user_profile.new_record? %>
+  <% if @user_profile.new_record? or @current_user.admin? %>
 
    <input type="button" name="previous" class="previous action-button" value="Previous" />
   <% end %>
