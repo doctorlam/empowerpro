@@ -17,6 +17,9 @@ body {
 	background: #5A9D96 !important;
 	color: white !important;
 }
+a.btn-default, a.btn-default:visited {
+	color: #5A9D96 !important;
+}
 .flex-container-center {
 	display: flex;
   justify-content: center;
@@ -143,7 +146,7 @@ a.navbar-brand {
 	margin-left: -30px;
 }
 .profile a{
-	color: #e3e5e5 !important;
+	color: #e3e5e5;
 }
 
 /*===========FOOTER STYLES =========*/

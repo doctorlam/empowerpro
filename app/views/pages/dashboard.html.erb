@@ -1,9 +1,10 @@
 <% if current_user.role?('user') %>
 <div class="container-fluid profile">
 <% @user_profiles.each do |user_profile| %>
+<%= image_tag user_profile.sponsor_profile.logo_url(:thumb) if user_profile.sponsor_profile.logo? %>
 
 <hr class="header-line-top" />
-  <h1><%= @current_user.user_profile.first_name %>'s Profile</h1>
+  <h1><%= @current_user.user_profile.first_name %>'s Dashboard</h1>
 <hr class="header-line-bottom" />
 
 <% end %>
@@ -32,14 +33,13 @@
       <h2>Opt-in Choices</h2>
       <hr class="header-line-bottom-left" />
       <ul>
-        <li><%= user_profile.contact_time %></li>
-        <li><%= user_profile.credit_assessment %></li>
-        <li><%= user_profile.credit_debt %></li>
-        <li><%= user_profile.credit_score_above %></li>    
+        <li>Credit Assessment? <%= user_profile.credit_assessment %></li>
+        <li>Credit debt? <%= user_profile.credit_debt %></li>
+        <li>Credit score above 720? <%= user_profile.credit_score_above %></li>    
       </ul> 
       <ul>
-      <li><%= link_to 'Update Profile', edit_user_profile_path(user_profile) %></li>
-        <li><%= link_to 'Destroy', user_profile, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <li><%= link_to 'Update Profile', edit_user_profile_path(user_profile), class: 'btn btn-default' %></li>
+      
       </ul>
       <% end %>
 
@@ -83,8 +83,8 @@
             <li><%= sponsor_profile.contact_time %></li>
           </ul>      
     <% if current_user.role?('sponsor') %>
-        <%= link_to 'Update Profile', edit_sponsor_profile_path(sponsor_profile) %> |
-       <%= link_to 'Destroy', sponsor_profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Update Profile', edit_sponsor_profile_path(sponsor_profile), class: 'btn btn-default' %>
+  
     <% end %>
       </tr>
   </div>

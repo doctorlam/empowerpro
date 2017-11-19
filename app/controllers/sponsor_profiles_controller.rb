@@ -2,6 +2,7 @@ class SponsorProfilesController < ApplicationController
   before_action :set_sponsor_profile, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:show, :index, :new, :create, :edit, :update, :destroy]
       before_action :user_is_current_user, only: [:show, :edit, :update, :destroy]
+    before_action :authorize_admin, only: [:index]
 
   # GET /sponsor_profiles
   # GET /sponsor_profiles.json
@@ -37,8 +38,8 @@ class SponsorProfilesController < ApplicationController
 
     respond_to do |format|
       if @sponsor_profile.save
-        format.html { redirect_to sponsor_profiles_path, notice: 'Sponsor profile was successfully created.' }
-        format.json { render :show, status: :created, location: sponsor_profiles_path }
+        format.html { redirect_to dashboard_path, notice: 'Sponsor profile was successfully created.' }
+        format.json { render :show, status: :created, location: dashboard_path }
       else
         format.html { render :new }
         format.json { render json: @sponsor_profile.errors, status: :unprocessable_entity }
@@ -51,8 +52,8 @@ class SponsorProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @sponsor_profile.update(sponsor_profile_params)
-        format.html { redirect_to sponsor_profiles_path, notice: 'Sponsor profile was successfully updated.' }
-        format.json { render :show, status: :ok, location: sponsor_profiles_path }
+        format.html { redirect_to dashboard_path, notice: 'Sponsor profile was successfully updated.' }
+        format.json { render :show, status: :ok, location: dashboard_path }
       else
         format.html { render :edit }
         format.json { render json: @sponsor_profile.errors, status: :unprocessable_entity }
