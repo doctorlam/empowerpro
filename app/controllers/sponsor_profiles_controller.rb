@@ -37,8 +37,11 @@ class SponsorProfilesController < ApplicationController
     @sponsor_profile.user_id = current_user.id
 
     respond_to do |format|
-      if @sponsor_profile.save
-        format.html { redirect_to dashboard_path, notice: 'Sponsor profile was successfully created.' }
+      if @sponsor_profile.save && current_user.admin?
+        format.html { redirect_to @sponsor_profile, notice: 'Sponsor profile was successfully created.' }
+        format.json { render :show, status: :created, location: @sponsor_profile }
+      elsif 
+         format.html { redirect_to dashboard_path, notice: 'Sponsor profile was successfully created.' }
         format.json { render :show, status: :created, location: dashboard_path }
       else
         format.html { render :new }

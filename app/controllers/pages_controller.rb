@@ -14,6 +14,7 @@ class PagesController < ApplicationController
 
  	  @user_profiles = UserProfile.all
  	  @sponsor_profiles = SponsorProfile.all
+    @users = User.all
  	   else
   	redirect_to new_user_session_path, alert: "You don't have permission to view this"
   end
@@ -29,5 +30,14 @@ class PagesController < ApplicationController
     redirect_to new_user_session_path, alert: "You need to sign in to view this"
   end
 end
+
+  def userregistration
+    def create_user
+      @user = User.new(:email => params[:email], :password => params[:password])
+      @user.save
+    
+    end
+  end
+
 
 end

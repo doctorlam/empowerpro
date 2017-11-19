@@ -1,11 +1,5 @@
 <div class="container">
-<div class="row">
-  <% @user_profiles.each do |user_profile| %>
-    <h1>Dashboard for <%= user_profile.first_name %></h1>
-    <h2><%= user_profile.sponsor_profile.organization_name %></h2>
-    <%= image_tag user_profile.sponsor_profile.logo.url(:thumb) if user_profile.sponsor_profile.logo? %>
-  <% end %>
-</div>
+<h1>All Users Index</h1>
 <div class="row">
 <div class="col-md-6">
 <table class="table table-striped">

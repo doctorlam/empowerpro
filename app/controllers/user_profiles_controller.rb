@@ -36,7 +36,10 @@ class UserProfilesController < ApplicationController
     @user_profile.user_id = current_user.id
 
     respond_to do |format|
-      if @user_profile.save
+      if @user_profile.save && current_user.admin?
+        format.html { redirect_to @user_profile, notice: 'User profile was successfully created.' }
+        format.json { render :show, status: :created, location: @user_profile }
+      elsif @user_profile.save
         format.html { redirect_to dashboard_path, notice: 'User profile was successfully created.' }
         format.json { render :show, status: :created, location: dashboard_path }
       else
