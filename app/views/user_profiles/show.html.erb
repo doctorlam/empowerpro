@@ -3,6 +3,9 @@
 <hr class="header-line-top" />
   <h1>User Profile >> <%= @user_profile.first_name %> <%=@user_profile.last_name %>'s Profile</h1>
 <hr class="header-line-bottom" />
+<br />
+
+<%= image_tag @user_profile.sponsor_profile.logo_url(:thumb) if @user_profile.sponsor_profile.logo? %>
 
   <div class="profile-container col-md-5">
 

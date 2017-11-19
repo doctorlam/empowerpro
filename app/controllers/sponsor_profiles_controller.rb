@@ -51,15 +51,21 @@ class SponsorProfilesController < ApplicationController
   # PATCH/PUT /sponsor_profiles/1.json
   def update
     respond_to do |format|
-      if @sponsor_profile.update(sponsor_profile_params)
-        format.html { redirect_to dashboard_path, notice: 'Sponsor profile was successfully updated.' }
+      if @sponsor_profile.update(sponsor_profile_params) && current_user.admin?
+
+        format.html { redirect_to @sponsor_profile, notice: 'Sponsor profile was successfully updated.' }
+        format.json { render :show, status: :ok, location: dashboard_path }
+      elsif @sponsor_profile.update(sponsor_profile_params)
+          format.html { redirect_to dashboard_path, notice: 'Sponsor profile was successfully updated.' }
         format.json { render :show, status: :ok, location: dashboard_path }
       else
         format.html { render :edit }
         format.json { render json: @sponsor_profile.errors, status: :unprocessable_entity }
       end
     end
-  end
+  
+end
+
 
   # DELETE /sponsor_profiles/1
   # DELETE /sponsor_profiles/1.json
