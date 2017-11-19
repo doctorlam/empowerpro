@@ -37,8 +37,8 @@ class UserProfilesController < ApplicationController
 
     respond_to do |format|
       if @user_profile.save
-        format.html { redirect_to user_profiles_path, notice: 'User profile was successfully created.' }
-        format.json { render :show, status: :created, location: user_profiles_path }
+        format.html { redirect_to dashboard_path, notice: 'User profile was successfully created.' }
+        format.json { render :show, status: :created, location: dashboard_path }
       else
         format.html { render :new }
         format.json { render json: @user_profile.errors, status: :unprocessable_entity }
@@ -78,7 +78,7 @@ class UserProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_profile_params
-      params.require(:user_profile).permit(:sponsor_profile_id, :user_id, :first_name, :last_name, :sponsor_id, :email, :phone_number, :street, :city, :state, :zip, :contact_time, :credit_assessment, :credit_debt, :credit_score_above, :tos)
+      params.require(:user_profile).permit(:sponsor_profile_id, :secret_key, :first_name, :last_name, :sponsor_id, :email, :phone_number, :street, :city, :state, :zip, :contact_time, :credit_assessment, :credit_debt, :credit_score_above, :tos)
     end
     def user_is_current_user
     unless current_user == @user_profile.user or current_user.admin

@@ -1,4 +1,5 @@
-<%= form_with(model: user_profile, local: true) do |form| %>
+<div class="container">
+<%= form_with(model: user_profile, local: true, id: "msform") do |form| %>
   <% if user_profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user_profile.errors.count, "error") %> prohibited this user_profile from being saved:</h2>
@@ -10,75 +11,180 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="form-field">
-    <%= form.label :sponsor_profile_id, "Enter Unique Sponsor ID" %>
+  <ul id="progressbar">
+    <li class="active">Secret Sponsor Key</li>
+    <li>Contact Info</li>
+    <li>Opt-in</li>
+  </ul>
+<fieldset>
+  <div class="form-group">
+    <%= form.label :sponsor_profile_id, "Enter Sponsor Secret Key" %>
     <%= form.number_field :sponsor_profile_id, class: 'form-control', :required => true %>
+
   </div>
-  <br>
-  <div class="form-field">
+   <input type="button" name="next" class="next action-button" value="Next" />
+
+</fieldset>
+<fieldset>
+  <div class="form-group">
     <%= form.label :first_name %>
     <%= form.text_field :first_name, id: :user_profile_first_name, class: 'form-control' %>
   </div>
 
-  <div class="form-field">
+  <div class="form-group">
     <%= form.label :last_name %>
     <%= form.text_field :last_name, id: :user_profile_last_name, class: 'form-control' %>
   </div>
 
 
-  <div class="form-field">
+  <div class="form-group">
     <%= form.label :phone_number %>
     <%= form.text_field :phone_number, id: :user_profile_phone_number, class: 'form-control'%>
   </div>
 
-  <div class="form-field">
+  <div class="form-group">
     <%= form.label :street, "Address" %>
     <%= form.text_field :street, id: :user_profile_street, class: 'form-control' %>
   </div>
 
-  <div class="form-field">
+  <div class="form-group">
     <%= form.label :city %>
     <%= form.text_field :city, id: :user_profile_city, class: 'form-control' %>
   </div>
 
-  <div class="form-field">
+  <div class="form-group">
     <%= form.label :state %>
     <%= form.text_field :state, id: :user_profile_state, class: 'form-control' %>
   </div>
 
-  <div class="form-field">
+  <div class="form-group">
     <%= form.label :zip %>
     <%= form.text_field :zip, id: :user_profile_zip, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :contact_time, "What is your preferred contact tiime?" %>
     <%= form.text_field :contact_time, id: :user_profile_contact_time, class: 'form-control' %>
   </div>
-
-  <div class="field">
-    <%= form.label :credit_assessment %>
-    <%= form.check_box :credit_assessment, id: :user_profile_credit_assessment, class: 'form-control' %>
+   <input type="button" name="previous" class="previous action-button" value="Previous" />
+  <input type="button" name="next" class="next action-button" value="Next" />
+</fieldset>
+<fieldset>
+  <div class="form-group">
+    <%= form.label :credit_assessment, "I would ike a free credit assessment to determine if we can help you increase your credit score?" %>
+    <%= form.check_box :credit_assessment, id: :user_profile_credit_assessment, class: 'form-control'%>
   </div>
 
-  <div class="field">
-    <%= form.label :credit_debt %>
+  <div class="form-group">
+    <%= form.label :credit_debt, "Are you struggling with high interest rate credit card debt?" %>
     <%= form.check_box :credit_debt, id: :user_profile_credit_debt, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :credit_score_above %>
+  <div class="form-group">
+    <%= form.label :credit_score_above, "Is your credit score about 720?" %>
     <%= form.check_box :credit_score_above, id: :user_profile_credit_score_above, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :tos %>
     <%= form.check_box :tos, id: :user_profile_tos, class: 'form-control' %>
   </div>
 
- 
+  <input type="button" name="previous" class="btn btn-default previous action-button" value="Previous" />
+  <br />
+  <br>
   <div class="actions">
-    <%= form.submit "Submit", class: 'form-control' %>
+    <%= form.submit "Submit", class: 'btn btn-primary form-control' %>
   </div>
+</fieldset>
 <% end %>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" type="text/javascript"></script>
+
+<script>
+
+//jQuery time
+var current_fs, next_fs, previous_fs; //fieldsets
+var left, opacity, scale; //fieldset properties which we will animate
+var animating; //flag to prevent quick multi-click glitches
+
+$(".next").click(function(){
+
+        
+        if (animating) return false;
+        animating = true;
+
+  
+  current_fs = $(this).parent();
+  next_fs = $(this).parent().next();
+  
+  //activate next step on progressbar using the index of next_fs
+  $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+  
+  //show the next fieldset
+  next_fs.show(); 
+  //hide the current fieldset with style
+  current_fs.animate({opacity: 0}, {
+    step: function(now, mx) {
+      //as the opacity of current_fs reduces to 0 - stored in "now"
+      //1. scale current_fs down to 80%
+      scale = 1 - (1 - now) * 0.2;
+      //2. bring next_fs from the right(50%)
+      left = (now * 50)+"%";
+      //3. increase opacity of next_fs to 1 as it moves in
+      opacity = 1 - now;
+      current_fs.css({
+        'transform': 'scale('+scale+')',
+        'position': 'absolute'
+      });
+      next_fs.css({'left': left, 'opacity': opacity});
+    }, 
+    duration: 800, 
+    complete: function(){
+      current_fs.hide();
+      animating = false;
+    }, 
+    //this comes from the custom easing plugin
+    easing: 'easeInOutBack'
+  });
+});
+
+$(".previous").click(function(){
+  if(animating) return false;
+  animating = true;
+  
+  current_fs = $(this).parent();
+  previous_fs = $(this).parent().prev();
+  
+  //de-activate current step on progressbar
+  $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+  
+  //show the previous fieldset
+  previous_fs.show(); 
+  //hide the current fieldset with style
+  current_fs.animate({opacity: 0}, {
+    step: function(now, mx) {
+      //as the opacity of current_fs reduces to 0 - stored in "now"
+      //1. scale previous_fs from 80% to 100%
+      scale = 0.8 + (1 - now) * 0.2;
+      //2. take current_fs to the right(50%) - from 0%
+      left = ((1-now) * 50)+"%";
+      //3. increase opacity of previous_fs to 1 as it moves in
+      opacity = 1 - now;
+      current_fs.css({'left': left});
+      previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+    }, 
+    duration: 800, 
+    complete: function(){
+      current_fs.hide();
+      animating = false;
+    }, 
+    //this comes from the custom easing plugin
+    easing: 'easeInOutBack'
+  });
+});
+
+$(".submit").click(function(){
+  return false;
+})
+</script>

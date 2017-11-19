@@ -32,7 +32,7 @@ gem "cancan"
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
 gem 'nested_form_fields'
-
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
