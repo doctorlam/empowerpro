@@ -79,7 +79,7 @@ class SponsorProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sponsor_profile_params
-      params.require(:sponsor_profile).permit(:logo, :user_id, :first_name, :last_name, :organization_name, :phone_number, :street, :city, :zip, :employee_count, :contact_time, :tos)
+      params.require(:sponsor_profile).permit(:secret_key, :logo, :user_id, :first_name, :last_name, :organization_name, :phone_number, :street, :city, :zip, :employee_count, :contact_time, :tos)
     end
   def user_is_current_user
     unless current_user == @sponsor_profile.user or current_user.admin
