@@ -1,47 +1,51 @@
-<div class="container-fluid">
-<% @sponsor_profiles.each do |sponsor_profile| %>
-  <%= image_tag sponsor_profile.logo_url(:thumb) if sponsor_profile.logo? %>
-<% end %>
-<% if @current_user.sponsor_profile.organization_name? %>
-<h1><%= @current_user.sponsor_profile.organization_name %>'s Profile</h1>
-<% end %>
+<div class="container">
+  <hr class="header-line-top" />
+
+<h1 style = "text-align: center">Index of All Sponsors</h1>
+<hr class="header-line-bottom" />
+<div class="row">
 <table class="table table-striped">
   <thead>
     <tr>
       <th>First name</th>
       <th>Last name</th>
-      <th>Organization name</th>
+      <th>Sponsor</th>
+      <th>Email</th>
       <th>Phone number</th>
       <th>Street</th>
       <th>City</th>
+      <th>State</th>
       <th>Zip</th>
-      <th>Employee count</th>
       <th>Contact time</th>
+      <th>Credit assessment</th>
+      <th>Credit debt</th>
+      <th>Credit score above</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @sponsor_profiles.each do |sponsor_profile| %>
-      <h1>Your Unique ID: <%= sponsor_profile.id %></h1>
+    <% @user_profiles.each do |user_profile| %>
       <tr>
-        <td><%= sponsor_profile.first_name %></td>
-        <td><%= sponsor_profile.last_name %></td>
-        <td><%= sponsor_profile.organization_name %></td>
-        <td><%= sponsor_profile.phone_number %></td>
-        <td><%= sponsor_profile.street %></td>
-        <td><%= sponsor_profile.city %></td>
-        <td><%= sponsor_profile.zip %></td>
-        <td><%= sponsor_profile.employee_count %></td>
-        <td><%= sponsor_profile.contact_time %></td>
-    <% if current_user.role?('sponsor') %>
-
-        <td><%= link_to 'Update Profile', edit_sponsor_profile_path(sponsor_profile) %></td>
-        <td><%= link_to 'Destroy', sponsor_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
+        <td><%= user_profile.first_name %></td>
+        <td><%= user_profile.last_name %></td>
+        <td><%= user_profile.sponsor_profile.organization_name %></td>
+        <td><%= user_profile.user.email %></td>
+        <td><%= user_profile.phone_number %></td>
+        <td><%= user_profile.street %></td>
+        <td><%= user_profile.city %></td>
+        <td><%= user_profile.state %></td>
+        <td><%= user_profile.zip %></td>
+        <td><%= user_profile.contact_time %></td>
+        <td><%= user_profile.credit_assessment %></td>
+        <td><%= user_profile.credit_debt %></td>
+        <td><%= user_profile.credit_score_above %></td>
+        <td><%= link_to 'Update Profile', edit_user_profile_path(user_profile) %></td>
+        <td><%= link_to 'Destroy', user_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<br>
+
+</div>
 </div>

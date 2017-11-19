@@ -1,0 +1,35 @@
+<header>
+  		<nav class="navbar navbar-default">
+          <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Empowerpro <span class="teal">Financial</span></a>
+        </div>
+  <div class="collapse navbar-collapse" id="navbar-collapse-2">
+  			 <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %> 
+            <% if  current_user.role?("user") %>
+                    <li class="nav-item"><%= link_to 'User Dashboard', dashboard_path %></li>
+      
+            <% elsif current_user.admin? %>
+                <li class="nav-item"><%= link_to 'Admin Panel', adminpanel_path %></li>
+
+            <% else %>
+                <li class="nav-item"><%= link_to 'Sponsor Dashboard', dashboard_path %></li>
+                <li class="nav-item"><%= link_to 'My Users', userlist_path %></li>
+            <% end %>
+                    <li class="nav-item"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li class="nav-item">
+          <% else %>
+                <li class="nav-item"><%= link_to "Register", new_user_registration_path %></li>
+                <li class="nav-item"><%= link_to "Sign in", new_user_session_path, class: 'btn btn-primary' %></li>
+          <% end %>
+      </ul>
+  </div><!--navbar collapse-2-->
+  		</nav>
+
+  	</header>

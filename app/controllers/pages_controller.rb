@@ -21,6 +21,13 @@ class PagesController < ApplicationController
  end 
 
   def dashboard
+  if user_signed_in?
+    @user_profiles = UserProfile.where(:user_id => current_user.id)
+    @sponsor_profiles = SponsorProfile.where(:user_id => current_user.id)
+    @courses = Course.all
+  else
+    redirect_to new_user_session_path, alert: "You need to sign in to view this"
   end
+end
 
 end

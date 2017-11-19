@@ -1,54 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid profile">
+  <%= image_tag @sponsor_profile.logo_url(:thumb) if @sponsor_profile.logo? %>
+<% if @sponsor_profile.organization_name? %>
+<hr class="header-line-top" />
+  <h1>Sponsor Profile >> <%= @sponsor_profile.organization_name %>'s Profile</h1>
+<hr class="header-line-bottom" />
 
-<p>
-  <strong>First name:</strong>
-  <%= @sponsor_profile.first_name %>
-</p>
+<% end %>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @sponsor_profile.last_name %>
-</p>
+  <div class="profile-container col-md-5">
 
-<p>
-  <strong>Organization name:</strong>
-  <%= @sponsor_profile.organization_name %>
-</p>
+        <h2>Vital Info</h2>
+        <hr class="header-line-bottom-left" />
+        <ul>
+          <li>Unique ID: <%= @sponsor_profile.id %></li>
+        <li># of Employees: <%= @sponsor_profile.employee_count %></li>
+      </ul>
+        
+        
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @sponsor_profile.phone_number %>
-</p>
+        <h2>Contact Info</h2>
+      <hr class="header-line-bottom-left" />
+          <ul>
+            <li>Contact Person: <%= @sponsor_profile.first_name %> <%= @sponsor_profile.last_name %></li>
+            <li><%= @sponsor_profile.phone_number %></li>
+            <li><%= @sponsor_profile.street %></li>
+            <li><%= @sponsor_profile.city %></li>
+            <li><%= @sponsor_profile.zip %></li>
+            <li><%= @sponsor_profile.contact_time %></li>
+          </ul>      
+    <% if current_user.role?('sponsor') %>
+        <%= link_to 'Update Profile', edit_sponsor_profile_path(@sponsor_profile) %> |
+       <%= link_to 'Destroy', @sponsor_profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+      </tr>
+  </div>
 
-<p>
-  <strong>Street:</strong>
-  <%= @sponsor_profile.street %>
-</p>
 
-<p>
-  <strong>City:</strong>
-  <%= @sponsor_profile.city %>
-</p>
+<br>
+</div>
 
-<p>
-  <strong>Zip:</strong>
-  <%= @sponsor_profile.zip %>
-</p>
-
-<p>
-  <strong>Employee count:</strong>
-  <%= @sponsor_profile.employee_count %>
-</p>
-
-<p>
-  <strong>Contact time:</strong>
-  <%= @sponsor_profile.contact_time %>
-</p>
-
-<p>
-  <strong>Tos:</strong>
-  <%= @sponsor_profile.tos %>
-</p>
-
-<%= link_to 'Edit', edit_sponsor_profile_path(@sponsor_profile) %> |
-<%= link_to 'Back', sponsor_profiles_path %>

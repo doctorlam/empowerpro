@@ -8,11 +8,12 @@ class ApplicationController < ActionController::Base
 
   end
    def after_sign_in_path_for(user) 
-   		if user.role == 'sponsor'
-   			 sponsor_profiles_path
-   		else
-   			user_profiles_path
-  		end
+     if user.admin?
+        adminpanel_path
+      else
+   			 dashboard_path
+   		end
+
 	end
 
 	def after_sign_out_path_for(user)

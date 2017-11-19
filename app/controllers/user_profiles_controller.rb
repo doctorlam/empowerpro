@@ -2,17 +2,22 @@ class UserProfilesController < ApplicationController
   before_action :set_user_profile, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:show, :index, :new, :create, :edit, :update, :destroy]
       before_action :user_is_current_user, only: [:show, :edit, :update, :destroy]
-
+    before_action :authorize_admin, only: [:index]
   # GET /user_profiles
   # GET /user_profiles.json
   def index
-    @user_profiles = UserProfile.where(:user_id => current_user.id)
-    @courses = Course.all
+  if current_user.admin?
+    @user_profiles = UserProfile.all
+  else
+    redirect_to dashboard_path
+  end
   end
 
   # GET /user_profiles/1
   # GET /user_profiles/1.json
   def show
+        @courses = Course.all
+
   end
 
   # GET /user_profiles/new
@@ -76,7 +81,7 @@ class UserProfilesController < ApplicationController
       params.require(:user_profile).permit(:sponsor_profile_id, :user_id, :first_name, :last_name, :sponsor_id, :email, :phone_number, :street, :city, :state, :zip, :contact_time, :credit_assessment, :credit_debt, :credit_score_above, :tos)
     end
     def user_is_current_user
-    unless current_user == @sponsor_profile.user or current_user.admin
+    unless current_user == @user_profile.user or current_user.admin
       redirect_to(root_url, alert: "You cannot edit this Submission") and return
     end
   end

@@ -1,0 +1,102 @@
+<% if current_user.role?('user') %>
+<div class="container-fluid profile">
+<% @user_profiles.each do |user_profile| %>
+
+<hr class="header-line-top" />
+  <h1><%= @current_user.user_profile.first_name %>'s Profile</h1>
+<hr class="header-line-bottom" />
+
+<% end %>
+
+  <div class="profile-container col-md-5">
+
+    <% @user_profiles.each do |user_profile| %>
+        <h2>Vital Info</h2>
+        <hr class="header-line-bottom-left" />
+        <ul>
+          <li><%= user_profile.first_name %> <%= user_profile.last_name %></li>
+          <li><%= user_profile.sponsor_profile.organization_name %></li>
+      </ul>
+
+        <h2>Contact Info</h2>
+      <hr class="header-line-bottom-left" />
+          <ul>
+            
+            <li><%= user_profile.phone_number %></li>
+            <li><%= user_profile.street %></li>
+            <li><%= user_profile.city %></li>
+            <li><%= user_profile.zip %></li>
+            <li><%= user_profile.contact_time %></li>
+          </ul> 
+      
+      <h2>Opt-in Choices</h2>
+      <hr class="header-line-bottom-left" />
+      <ul>
+        <li><%= user_profile.contact_time %></li>
+        <li><%= user_profile.credit_assessment %></li>
+        <li><%= user_profile.credit_debt %></li>
+        <li><%= user_profile.credit_score_above %></li>    
+      </ul> 
+      <ul>
+      <li><%= link_to 'Update Profile', edit_user_profile_path(user_profile) %></li>
+        <li><%= link_to 'Destroy', user_profile, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+      <% end %>
+
+    </div>
+  </div>
+<% end %>
+
+<!--==================SPONSOR DASHBOARD================-->
+
+<% if current_user.role?('sponsor') %>
+<% @sponsor_profiles.each do |sponsor_profile| %>
+
+<div class="container-fluid profile">
+  <%= image_tag sponsor_profile.logo_url(:thumb) if sponsor_profile.logo? %>
+<% if sponsor_profile.organization_name? %>
+<hr class="header-line-top" />
+  <h1><%= @current_user.sponsor_profile.organization_name %>'s Profile</h1>
+<hr class="header-line-bottom" />
+
+<% end %>
+
+  <div class="profile-container col-md-5">
+
+        <h2>Vital Info</h2>
+        <hr class="header-line-bottom-left" />
+        <ul>
+          <li>Unique ID: <%= sponsor_profile.id %></li>
+        <li># of Employees: <%= sponsor_profile.employee_count %></li>
+      </ul>
+        
+        
+
+        <h2>Contact Info</h2>
+      <hr class="header-line-bottom-left" />
+          <ul>
+            <li>Contact Person: <%= sponsor_profile.first_name %> <%= sponsor_profile.last_name %></li>
+            <li><%= sponsor_profile.phone_number %></li>
+            <li><%= sponsor_profile.street %></li>
+            <li><%= sponsor_profile.city %></li>
+            <li><%= sponsor_profile.zip %></li>
+            <li><%= sponsor_profile.contact_time %></li>
+          </ul>      
+    <% if current_user.role?('sponsor') %>
+        <%= link_to 'Update Profile', edit_sponsor_profile_path(sponsor_profile) %> |
+       <%= link_to 'Destroy', sponsor_profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+      </tr>
+  </div>
+
+<% end %>
+
+<div class="courses">
+
+
+</div><!--/courses-->
+<br>
+</div>
+
+
+<% end %>

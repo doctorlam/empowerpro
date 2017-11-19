@@ -1,73 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid profile">
 
-<p>
-  <strong>First name:</strong>
-  <%= @user_profile.first_name %>
-</p>
+<hr class="header-line-top" />
+  <h1>User Profile >> <%= @user_profile.first_name %> <%=@user_profile.last_name %>'s Profile</h1>
+<hr class="header-line-bottom" />
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user_profile.last_name %>
-</p>
+  <div class="profile-container col-md-5">
 
-<p>
-  <strong>Sponsor:</strong>
-<%= @user_profile.sponsor_profile_id %></p>
+        <h2>Vital Info</h2>
+        <hr class="header-line-bottom-left" />
+        <ul>
+          <li><%= @user_profile.first_name %> <%= @user_profile.last_name %></li>
+          <li><%= @user_profile.sponsor_profile.organization_name %></li>
+      </ul>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user_profile.email %>
-</p>
+        <h2>Contact Info</h2>
+      <hr class="header-line-bottom-left" />
+          <ul>
+            
+            <li><%= @user_profile.phone_number %></li>
+            <li><%= @user_profile.street %></li>
+            <li><%= @user_profile.city %></li>
+            <li><%= @user_profile.zip %></li>
+            <li><%= @user_profile.contact_time %></li>
+          </ul> 
+      
+      <h2>Opt-in Choices</h2>
+      <hr class="header-line-bottom-left" />
+      <ul>
+        <li><%= @user_profile.contact_time %></li>
+        <li><%= @user_profile.credit_assessment %></li>
+        <li><%= @user_profile.credit_debt %></li>
+        <li><%= @user_profile.credit_score_above %></li>    
+      </ul> 
+      <ul>
+      <li><%= link_to 'Update Profile', edit_user_profile_path(@user_profile) %></li>
+        <li><%= link_to 'Destroy', @user_profile, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @user_profile.phone_number %>
-</p>
+    </div>
+    <div class="courses">
+  <%= render 'courses_index' %>
 
-<p>
-  <strong>Street:</strong>
-  <%= @user_profile.street %>
-</p>
 
-<p>
-  <strong>City:</strong>
-  <%= @user_profile.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @user_profile.state %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @user_profile.zip %>
-</p>
-
-<p>
-  <strong>Contact time:</strong>
-  <%= @user_profile.contact_time %>
-</p>
-
-<p>
-  <strong>Credit assessment:</strong>
-  <%= @user_profile.credit_assessment %>
-</p>
-
-<p>
-  <strong>Credit debt:</strong>
-  <%= @user_profile.credit_debt %>
-</p>
-
-<p>
-  <strong>Credit score above:</strong>
-  <%= @user_profile.credit_score_above %>
-</p>
-
-<p>
-  <strong>Tos:</strong>
-  <%= @user_profile.tos %>
-</p>
-
-<%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |
-<%= link_to 'Back', user_profiles_path %>
+</div><!--/courses-->
+  </div>

@@ -6,15 +6,18 @@ class SponsorProfilesController < ApplicationController
   # GET /sponsor_profiles
   # GET /sponsor_profiles.json
   def index
-    @sponsor_profiles = SponsorProfile.where(:user_id => current_user.id)
+    if current_user.admin?
+    @sponsor_profiles = SponsorProfile.all
     @user_profiles = UserProfile.all
+  else
+    redirect_to dashboard_path
+  end
   end
 
   # GET /sponsor_profiles/1
   # GET /sponsor_profiles/1.json
   def show
-      @sponsor_profiles = SponsorProfile.where(:user_id => current_user.id)
-    @user_profiles = UserProfile.all
+    @courses = Course.all
   end
 
   # GET /sponsor_profiles/new

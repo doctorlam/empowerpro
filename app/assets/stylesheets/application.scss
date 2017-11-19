@@ -1,10 +1,167 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,700');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+
+/*===========GLOBAL STYLES =========*/
+html {
+	font-size: 15px;
+	min-height: 100vh;
+	  position: relative;
+}
+body {
+	margin-bottom: 200px;
+	color: #767c7c;
+}
+.btn-primary {
+	background: #5A9D96 !important;
+	color: white !important;
+}
+.flex-container-center {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 500px);
+}
+h1 {
+	font-family: 'Fira Sans', sans-serif;
+	text-transform: uppercase;
+	font-size: 2rem;
+	font-weight: 700;
+}
+h2 {
+	font-family: 'Fira Sans', sans-serif;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+		font-weight: 700;
+
+}
+h3 {
+	font-family: 'Fira Sans', sans-serif;
+	text-transform: uppercase;
+	font-size: 1.25rem;
+}
+h4 {
+	font-family: 'Fira Sans', sans-serif;
+	text-transform: uppercase;
+	font-size: 1rem;
+}
+p, ul, ol, table {
+	font-family: 'Work Sans', sans-serif;
+	font-size: 1rem;
+}
+.header-line-top {
+	margin-bottom: 20px;
+	border-top: 1px solid #999b9b;
+	width: 20%;
+	margin: 0 auto;
+
+}
+.header-line-bottom {
+	margin-top: 20px;
+	border-top: 1px solid #999b9b;
+	width: 20%;
+	margin: 0 auto;
+}
+.header-line-bottom-left {
+	margin-top: 20px;
+	border-top: 1px solid #e3e5e5;
+	width: 20%;
+	
+}
+
+/*===========HEADER STYLES =========*/
+
+
+/*===========NAVBAR STYLES =========*/
+.navbar-default {
+	    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+.navbar-default a {
+	font-size: 1rem;
+}
+.teal {
+	color: #5A9D96 !important;
+}
+a.navbar-brand {
+	font-size: 2rem !important;
+}
+
+
+/*===========FORM STYLES =========*/
 
 .form-container {
 	
 	width: 50%;
 	margin: 0 auto;
-	border: 1px solid black;
 	padding: 20px;
+	border-radius: 20px;
+}
+.form-header {
+	background: #5A9D96;
+	color: #ecf0f1;
+	padding-bottom: 15px;
+	padding-top: 4px;
+	margin-bottom: 20px;
+}
+.form-container h2{
+	font-size: 1.1rem;
+	text-transform: uppercase;
+	text-align: center;
+
+}
+/*===========PAGE STYLES =========*/
+.profile {
+	flex-direction: column;
+	display: flex;
+  	text-align: center;
+
+}
+.profile-container {
+	background: #5A9D96;
+	padding: 10px;
+	margin-top: 20px;
+	color: #e3e5e5;
+	padding-bottom: 20px;
+}
+.profile h1, .profile h2, .profile h3 {
+	text-align: center;	
+
+}
+.profile img {
+	align-self: center;
+	margin-bottom: 20px;
+	border-radius: 50%;
+	border: 2px solid #f4f7f7;
+}
+.profile ul {
+	list-style-type: none;
+	margin-left: -30px;
+}
+.profile a{
+	color: #e3e5e5 !important;
+}
+
+/*===========FOOTER STYLES =========*/
+
+ #footer {
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    height: 200px;
+    background-color: #f5f5f5;
+    }
+  
+
+/*===========MEDIA QUERIES =========*/
+
+@media (max-width: 768px) {
+	.form-container {
+		width: 100%;
+	}
+
 }
