@@ -13,17 +13,25 @@
     </div>
   <% end %>
 <ul id="progressbar">
+<% if @sponsor_profile.new_record? %>
     <li class="active">Secret Sponsor Key</li>
     <li>Contact Info</li>
     <li>Complete</li>
+<% else %>
+     <li class="active">Contact Info</li>
+    <li>Complete</li>
+<% end %>
   </ul>
+<% if @sponsor_profile.new_record? %>
 <fieldset>
+
   <div class="form-group">
     <%= form.label :secret_key %>
     <%= form.number_field :secret_key, class: 'form-control', :required => 'true' %>
   </div>
    <input type="button" name="next" class="next action-button" value="Next" />
 </fieldset>
+<% end %>
 
 <fieldset>
 <div class="form-group">
@@ -60,8 +68,9 @@
     <%= form.label :zip %>
     <%= form.text_field :zip, id: :sponsor_profile_zip,class: 'form-control' %>
   </div>
-
-   <input type="button" name="previous" class="btn btn-default previous action-button" value="Previous" />
+  <% if @sponsor_profile.new_record? %>
+   <input type="button" name="previous" class="previous action-button" value="Previous" />
+  <% end %>
    <input type="button" name="next" class="next action-button" value="Next" />
 
 </fieldset>
