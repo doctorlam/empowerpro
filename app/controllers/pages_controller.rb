@@ -20,6 +20,10 @@ class PagesController < ApplicationController
   end
 
  end 
+  def approve
+    @users = User.all
+  end
+
 
   def dashboard
   if user_signed_in?

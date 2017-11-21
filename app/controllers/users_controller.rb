@@ -11,9 +11,22 @@ class UsersController < ApplicationController
             render :new
         end
   end
+ def edit
+     @user = User.find(params[:id])
+   end
+def update
+    @user = User.find(params[:id])
+     if @user.update_without_password(user_params)
+       redirect_to adminpanel_path
+     else
+       render 'edit'
+     end
+   end
+
+private 
 
 def user_params
-        params.require(:user).permit(:role, :name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:approved, :role, :name, :email, :password, :password_confirmation)
     end
 
 end

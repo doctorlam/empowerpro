@@ -90,9 +90,11 @@
   </div>
 
 <% end %>
-
 <div class="courses">
+  <% if current_user.approved? %>
 
+Show this if user is approved by admin.
+<% end %>
 
 </div><!--/courses-->
 <br>

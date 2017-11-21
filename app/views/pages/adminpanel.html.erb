@@ -11,12 +11,28 @@
 
 <h3>Pending Accounts</h3>
 <p>Accounts that are created but a profile hasn't been created yet.</p>
-  <ul>
+<table class="table table-striped">
+<thead>
+    <tr>
+      <th>Email</th>
+      <th>Role</th>
+      <th>When Registered?</th>
+      <th>Account Status</th>
+      <th>Approved</th>
+    </tr>
+  </thead>
+  <tbody>
     <% @users.each do |user| %>
-      <li><%= user.email %></li>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.role %></td>
+      <td><%= user.created_at %></td>
+      <td><%= user.approved %></td>
+      <td><%= link_to "Approve", edit_user_path(user) %></td>
+    </tr>
     <% end %>
-  </ul>
-
+  </tbody>
+</table>
 	<table class="table table-striped">
   <thead>
     <tr>
