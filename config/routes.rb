@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   resources :courses
   resources :user_profiles
   resources :sponsor_profiles
+  devise_for :users, controllers: { registrations: "registrations" }, :path_prefix => 'account'
   resources :users
-  devise_for :users, :path_prefix => 'my'
+
 
   # Name it however you want
   post 'create_user' => 'users#create', as: :create_user      
