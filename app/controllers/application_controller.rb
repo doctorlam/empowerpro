@@ -24,4 +24,5 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: "You don't have permission"  unless current_user.admin
 
 end
+ 
 end

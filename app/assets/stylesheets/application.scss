@@ -16,6 +16,10 @@ body {
 .btn-primary {
 	background: #5A9D96 !important;
 	color: white !important;
+	border: none !important;
+}
+.btn-default {
+	border: none !important;
 }
 a.btn-default, a.btn-default:visited {
 	color: #5A9D96 !important;
@@ -96,7 +100,9 @@ p, ul, ol, table {
 a.navbar-brand {
 	font-size: 2rem !important;
 }
-
+li.registration {
+	margin-right:15px;
+}
 
 /*===========FORM STYLES =========*/
 
@@ -192,6 +198,8 @@ a.navbar-brand {
 	background: #27AE60;
 	color: white;
 }
+/*===========ADMIN PANEL STYLES =========*/
+
 /*===========PAGE STYLES =========*/
 .profile {
 	flex-direction: column;
@@ -223,7 +231,10 @@ a.navbar-brand {
 .profile a{
 	color: #e3e5e5;
 }
-
+/*===========REGISTRATION LANDING PAGE STYLES =========*/
+.registration-landing {
+	text-align: center;
+}
 /*===========FOOTER STYLES =========*/
 
  #footer {

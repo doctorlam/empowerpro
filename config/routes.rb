@@ -14,5 +14,11 @@ Rails.application.routes.draw do
     get "dashboard" => "pages#dashboard"
     get "userlist" => "pages#userlist"
     get "adminpanel" => "pages#adminpanel"
-	get "userregistration" => "pages#userregistration"
+	 get "userregistration" => "pages#userregistration"
+    get "sponsorregistration" => "pages#sponsorregistration"
+    get "adminregistration" => "pages#adminregistration"
+    get "registrationlanding" => "pages#registrationlanding"
+
+
+
 end

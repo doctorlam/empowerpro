@@ -4,88 +4,105 @@
 <div class="container-fluid">
 
 
-  <h1>Admin Panel</h1>
-
+<hr class="header-line-top" />
+<h1 class = "center">Administration Center</h1>
+<hr class="header-line-bottom" />
 <%= link_to "Create New User", userregistration_path, class: 'btn btn-primary' %>
-<h2>User List</h2>
+<div class="row main_div">
+<div class="col-md-2 buttons">
+  <div class="nav">
 
-<h3>Pending Accounts</h3>
-<p>Accounts that are created but a profile hasn't been created yet.</p>
-<table class="table table-striped">
-<thead>
-    <tr>
-      <th>Email</th>
-      <th>Role</th>
-      <th>When Registered?</th>
-      <th>Account Status</th>
-      <th>Approved</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-    <tr>
-      <td><%= user.email %></td>
-      <td><%= user.role %></td>
-      <td><%= user.created_at %></td>
-      <td><%= user.approved %></td>
-      <td><%= link_to "Approve", edit_user_path(user) %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-	<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Sponsor</th>
-      <th>Email</th>
-      <th>Phone number</th>
-      <th>Street</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th>Contact time</th>
-      <th>Credit assessment</th>
-      <th>Credit debt</th>
-      <th>Credit score above</th>
-      <th>Tos</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user_profiles.each do |user_profile| %>
-      <tr>
-        <td><%= user_profile.first_name %></td>
-        <td><%= user_profile.last_name %></td>
-        <td><%= user_profile.sponsor_profile.organization_name %></td>
-        <td><%= user_profile.user.email %></td>
-        <td><%= user_profile.phone_number %></td>
-        <td><%= user_profile.street %></td>
-        <td><%= user_profile.city %></td>
-        <td><%= user_profile.state %></td>
-        <td><%= user_profile.zip %></td>
-        <td><%= user_profile.contact_time %></td>
-        <td><%= user_profile.credit_assessment %></td>
-        <td><%= user_profile.credit_debt %></td>
-        <td><%= user_profile.credit_score_above %></td>
-        <td><%= user_profile.tos %></td>
-        <td><%= link_to 'Show', user_profile %></td>
-        <td><%= link_to 'Edit', edit_user_profile_path(user_profile) %></td>
-        <td><%= link_to 'Destroy', user_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</ul>
+  <nav class="side-nav">
+    <ul id = "menu">
+      <li ><a href="#Section1">Activate/Dectivate</a></li>
+        <li ><a href="#Section2">User Profiles</a></li>
+        <li ><a href="#Section3">Sponsor Profiles</a></li>
+    </ul>
+  </nav>
+</div><!--/nav -->
 </div>
+<div class="main">
+<div class="col-md-10">
+
+  <div id="Section1" class="content">
+      <h2>Activate or Deactivate Users</h2>
+      <table class="table table-striped">
+      <thead>
+          <tr>
+            <th>Email</th>
+            <th>Role</th>
+            <th>When Registered?</th>
+            <th>Account Status</th>
+            <th>Approved</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= user.email %></td>
+            <td><%= user.role %></td>
+            <td><%= user.created_at %></td>
+            <td><%= user.approved %></td>
+            <td><%= link_to "Approve", edit_user_path(user) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div><!--activate-->
+
+<div id="Section2" class="content">      	
+  <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Sponsor</th>
+            <th>Email</th>
+            <th>Phone number</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Contact time</th>
+            <th>Credit assessment</th>
+            <th>Credit debt</th>
+            <th>Credit score above</th>
+            <th>Tos</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @user_profiles.each do |user_profile| %>
+            <tr>
+              <td><%= user_profile.first_name %></td>
+              <td><%= user_profile.last_name %></td>
+              <td><%= user_profile.sponsor_profile.organization_name %></td>
+              <td><%= user_profile.user.email %></td>
+              <td><%= user_profile.phone_number %></td>
+              <td><%= user_profile.street %></td>
+              <td><%= user_profile.city %></td>
+              <td><%= user_profile.state %></td>
+              <td><%= user_profile.zip %></td>
+              <td><%= user_profile.contact_time %></td>
+              <td><%= user_profile.credit_assessment %></td>
+              <td><%= user_profile.credit_debt %></td>
+              <td><%= user_profile.credit_score_above %></td>
+              <td><%= user_profile.tos %></td>
+              <td><%= link_to 'Show', user_profile %></td>
+              <td><%= link_to 'Edit', edit_user_profile_path(user_profile) %></td>
+              <td><%= link_to 'Destroy', user_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </ul>
+</div><!--/ admin-users-->
 
 
-<div class="container-fluid">
 <p id="notice"><%= notice %></p>
 
-
+<div id="Section3" class="content">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -132,5 +149,28 @@
     <% end %>
   </tbody>
 </table>
+</div><!--/admin-sponsor-->
 <br>
+</div><!--/col-md-8-->
+</div><!--row-->
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+$('#menu a').click(function(e){
+    var target = $(this).attr("href");
+    $(".main .content").not(target).hide();
+    $(target).show();
+    return(false);
+ });
+
+//Hide the divs on load
+$(".main .content").hide();
+//Set an initial target
+var initialTarget = "#Section1";
+
+//Overide that target if coming from a bookmark. E.g www.mypage.com#Section2
+//Another reson to use meaningful href 
+if(location.hash.length > 0) {initialTarget =location.hash; }
+$(initialTarget).show();
+</script>

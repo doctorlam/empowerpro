@@ -35,7 +35,7 @@ class PagesController < ApplicationController
   end
 end
 
-  def userregistration
+  def adminregistration
     def create_user
       @user = User.new(:email => params[:email], :password => params[:password])
       @user.save
@@ -43,5 +43,10 @@ end
     end
   end
 
+  def sponsorregistration 
+
+  end
+  def userregistration
+  end
 
 end

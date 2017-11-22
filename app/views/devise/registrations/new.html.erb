@@ -1,9 +1,16 @@
-<div class="form-container">
-<h2>Sign up</h2>
+
+<div class="flex-container-center">
+  <div class="form-container">
+    <div class="form-header">
+      <h2>Sign up</h2>
+    </div><!-- / form-header-->
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+  <div class ="form-group">
+    <%= f.label :role, "Are you a Sponsor or a User?"%>
+    <%= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}, :include_blank => '--select one--', :required => true) %>
+</div>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, class: 'form-control' %>
@@ -21,11 +28,8 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'%>
   </div>
+<br>
 
-  <div class ="form-group">
-    <%= f.label :role, "Are you a Sponsor or a User?"%>
-    <%= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}, :include_blank => '--select one--', :required => true) %>
-</div>
   <div class="actions">
     <%= f.submit "Sign up", class: 'form-control btn btn-primary' %>
   </div>
@@ -33,3 +37,4 @@
 
 <%= render "devise/shared/links" %>
 </div>
+</div><!--/flex-container-->
