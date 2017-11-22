@@ -1,4 +1,4 @@
-<% if current_user.role?('user') %>
+<% if current_user.role?('user') && current_user.approved? %>
 <div class="container-fluid profile">
 <% @user_profiles.each do |user_profile| %>
 <%= image_tag user_profile.sponsor_profile.logo_url(:thumb) if user_profile.sponsor_profile.logo? %>
@@ -45,11 +45,13 @@
 
     </div>
   </div>
-<% end %>
+
+
+
 
 <!--==================SPONSOR DASHBOARD================-->
 
-<% if current_user.role?('sponsor') %>
+<% elsif current_user.role?('sponsor') && current_user.approved? %>
 <% @sponsor_profiles.each do |sponsor_profile| %>
 
 <div class="container-fluid profile">
@@ -89,16 +91,17 @@
       </tr>
   </div>
 
+
 <% end %>
 <div class="courses">
-  <% if current_user.approved? %>
 
 Show this if user is approved by admin.
-<% end %>
 
 </div><!--/courses-->
 <br>
 </div>
+<% else %>
 
+        <h1 style ="text-align:center">Thanks for signing up! We'll contact you soon about activating your account.</h1>
 
 <% end %>

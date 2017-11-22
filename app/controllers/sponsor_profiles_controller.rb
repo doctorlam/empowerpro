@@ -41,7 +41,7 @@ class SponsorProfilesController < ApplicationController
         format.html { redirect_to @sponsor_profile, notice: 'Sponsor profile was successfully created.' }
         format.json { render :show, status: :created, location: @sponsor_profile }
       elsif 
-         format.html { redirect_to dashboard_path, notice: 'Sponsor profile was successfully created.' }
+         format.html { redirect_to root_path, notice: 'Sponsor profile was successfully created. You will receive an email if your account is activated' }
         format.json { render :show, status: :created, location: dashboard_path }
       else
         format.html { render :new }
