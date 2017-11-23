@@ -2,7 +2,8 @@
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,700');
 @import url('https://fonts.googleapis.com/css?family=Work+Sans');
-
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400');
 /*===========GLOBAL STYLES =========*/
 html {
 	font-size: 15px;
@@ -80,30 +81,96 @@ p, ul, ol, table {
 	text-align: center;
 }
 
-/*===========HEADER STYLES =========*/
+/*===========HERO STYLES =========*/
+.hero {
+	background: url('hero.jpg') no-repeat center center;
+	background-size: cover;
+	height: 800px;
+}
+.hero-overlay {
+	height: 800px;
 
+background: rgba(92,157,150,0.92);
+background: -moz-linear-gradient(-45deg, rgba(92,157,150,0.92) 1%, rgba(133,184,179,0.91) 51%, rgba(153,170,202,0.91) 72%, rgba(153,170,202,0.9) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(1%, rgba(92,157,150,0.92)), color-stop(51%, rgba(133,184,179,0.91)), color-stop(72%, rgba(153,170,202,0.91)), color-stop(100%, rgba(153,170,202,0.9)));
+background: -webkit-linear-gradient(-45deg, rgba(92,157,150,0.92) 1%, rgba(133,184,179,0.91) 51%, rgba(153,170,202,0.91) 72%, rgba(153,170,202,0.9) 100%);
+background: -o-linear-gradient(-45deg, rgba(92,157,150,0.92) 1%, rgba(133,184,179,0.91) 51%, rgba(153,170,202,0.91) 72%, rgba(153,170,202,0.9) 100%);
+background: -ms-linear-gradient(-45deg, rgba(92,157,150,0.92) 1%, rgba(133,184,179,0.91) 51%, rgba(153,170,202,0.91) 72%, rgba(153,170,202,0.9) 100%);
+background: linear-gradient(135deg, rgba(92,157,150,0.92) 1%, rgba(133,184,179,0.91) 51%, rgba(153,170,202,0.91) 72%, rgba(153,170,202,0.9) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5c9d96', endColorstr='#99aaca', GradientType=1 );	display: flex;
+	flex-direction: column;
+	justify-content:center;
+	align-items: center;
+}
+.hero-overlay h1, .hero-overlay h2 {
+	color: white;
+}
+.hero-overlay h1 {
+	font-family: 'Alegreya Sans';
+	text-transform: initial;
+	font-size: 4.5rem;
+	font-weight: 300;
+	text-align: center;
+}
+.hero-overlay h2 {
+	text-transform: initial;
+	font-family: 'Alegreya Sans';
+		font-weight: 300;
+		font-size: 2.2rem;
+		margin-top: -10px;
 
+}
+#diamond {
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-bottom-color: #d5efec;
+	position: relative;
+	top: -20px;
+}
+#diamond:after {
+	content: '';
+	position: absolute;
+	left: -20px;
+	top: 20px;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: #d5efec;
+}
 /*===========NAVBAR STYLES =========*/
+header {
+	position: fixed;
+	width: 100%;
+}
 .navbar-default {
-	    background-color: #f8f8f8;
-    border-color: #e7e7e7;
+	    background-color: transparent;
     padding-bottom: 10px;
     padding-top: 10px;
     padding-right: 10px;
+    margin-bottom: 0;
+    border: none;
 }
 .navbar-default a {
 	font-size: 1rem;
 }
 .teal {
-	color: #5A9D96 !important;
+	color: #a8dbd5 !important;
 }
 a.navbar-brand {
 	font-size: 2rem !important;
+	color: white !important;
 }
 li.registration {
 	margin-right:15px;
 }
 
+nav li a {
+	color: white !important;
+	text-transform: uppercase;
+	font-weight: 400;
+	letter-spacing: 1.5px;
+}
 /*===========FORM STYLES =========*/
 
 .form-container {

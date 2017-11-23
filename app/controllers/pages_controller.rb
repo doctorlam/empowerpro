@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+  def home
+  end
+
   def userlist
   	if user_signed_in? && current_user.admin? 
   		@user_profiles = UserProfile.all
