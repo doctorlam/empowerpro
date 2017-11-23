@@ -29,7 +29,7 @@ a.btn-default, a.btn-default:visited {
 	display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 500px);
+  min-height: calc(100vh - 300px);
 }
 h1 {
 	font-family: 'Fira Sans', sans-serif;
@@ -146,6 +146,13 @@ header.home {
 .home .navbar-default {
 	 background-color: transparent !important;
     padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    margin-bottom: 0;
+    border: none;
+}
+.navbar-default {
+	 padding-bottom: 10px;
     padding-top: 10px;
     padding-right: 10px;
     margin-bottom: 0;

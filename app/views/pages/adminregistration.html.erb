@@ -1,14 +1,17 @@
+<div class="flex-container-center">
 <div class="form-container">
-<h2>Sign up</h2>
+<hr class="header-line-top">
+<h2>Create a User as an Admin</h2>
+<hr class="header-line-bottom">
 
 <%= form_for User.new, url: create_user_path do |f| %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -16,11 +19,11 @@
     <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'%>
   </div>
-
+<br>
   <div class ="form-group">
     <%= f.label :role, "Are you a Sponsor or a User?"%>
     <%= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}, :include_blank => '--select one--', :required => true) %>
@@ -31,3 +34,4 @@
 <% end %>
 
 </div>
+</div><!--/flex-container-->
