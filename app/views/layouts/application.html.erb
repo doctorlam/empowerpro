@@ -10,8 +10,11 @@
   </head>
 
   <body>
-  	<%= render 'layouts/header' %>
-     <% if flash[:alert] %>
+<% if current_page?(root_path) %>
+    <%= render 'layouts/home_header' %>
+<% else %>
+    <%= render 'layouts/header' %>
+<% end %>     <% if flash[:alert] %>
     <div class="alert alert-danger"><%= flash[:alert] %></div>
 <% end %>
 <% if flash[:notice] %>

@@ -139,12 +139,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5c9d96', end
 	border-top-color: #d5efec;
 }
 /*===========NAVBAR STYLES =========*/
-header {
+header.home {
 	position: fixed;
 	width: 100%;
 }
-.navbar-default {
-	    background-color: transparent;
+.home .navbar-default {
+	 background-color: transparent !important;
     padding-bottom: 10px;
     padding-top: 10px;
     padding-right: 10px;
@@ -157,16 +157,25 @@ header {
 .teal {
 	color: #a8dbd5 !important;
 }
-a.navbar-brand {
+.home a.navbar-brand {
 	font-size: 2rem !important;
 	color: white !important;
+}
+a.navbar-brand {
+	font-size: 2rem;
 }
 li.registration {
 	margin-right:15px;
 }
 
-nav li a {
+.home nav li a {
 	color: white !important;
+	text-transform: uppercase;
+	font-weight: 400;
+	letter-spacing: 1.5px;
+}
+nav li a {
+	color: black !important;
 	text-transform: uppercase;
 	font-weight: 400;
 	letter-spacing: 1.5px;
