@@ -23,3 +23,8 @@
   setTimeout(function() {
     $('.alert').fadeOut('slow');}, 3000
   );
+
+  /* Fadeout Flash Notice */
+  setTimeout(function() {
+    $('.notice').fadeOut('slow');}, 3000
+  );

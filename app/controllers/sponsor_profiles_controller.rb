@@ -58,7 +58,7 @@ class SponsorProfilesController < ApplicationController
 
         format.html { redirect_to @sponsor_profile, notice: 'Sponsor profile was successfully updated.' }
         format.json { render :show, status: :ok, location: dashboard_path }
-      elsif @sponsor_profile.update(sponsor_profile_params)
+      elsif @sponsor_profile.update(sponsor_profile_params) 
           format.html { redirect_to dashboard_path, notice: 'Sponsor profile was successfully updated.' }
         format.json { render :show, status: :ok, location: dashboard_path }
       else
