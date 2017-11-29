@@ -1,6 +1,7 @@
 <% if flash[:alert] %>
     <div class="alert"><%= flash[:alert] %></div>
 <% end %>
+
 <div class="container-fluid">
 
 
@@ -21,6 +22,7 @@
   </nav>
 </div><!--/nav -->
 </div>
+
 <div class="main">
 <div class="col-md-10">
 
@@ -128,7 +130,6 @@
         <td><%= sponsor_profile.first_name %></td>
         <td><%= sponsor_profile.last_name %></td>
         <td><%= sponsor_profile.organization_name %></td>
-        <td><%= sponsor_profile.user.email %></td>
         <td><%= sponsor_profile.phone_number %></td>
         <td><%= sponsor_profile.street %></td>
         <td><%= sponsor_profile.city %></td>

@@ -45808,3 +45808,213 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 55ms (Views: 53.4ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-11-29 10:18:50 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_home_header.html.erb (6.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 563ms (Views: 550.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/account/users/sign_in" for 127.0.0.1 at 2017-11-29 10:19:04 -0600
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (20.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 86ms (Views: 70.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/account/users/sign_in" for 127.0.0.1 at 2017-11-29 10:19:09 -0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VNDwvZy9gsE/ao94KqFIt9OxWpjsCdh+RekLcmWhGpymzY3n8APyIr18YCSxTtjJO9DDR49s/bDkmdZ4YC4HJA==", "user"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-11-29 16:19:09.299436"], ["last_sign_in_at", "2017-11-25 01:47:56.003573"], ["sign_in_count", 6], ["updated_at", "2017-11-29 16:19:09.300497"], ["id", 89]]
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/adminpanel
+Completed 302 Found in 177ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/adminpanel" for 127.0.0.1 at 2017-11-29 10:19:09 -0600
+Processing by PagesController#adminpanel as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 89], ["LIMIT", 1]]
+  Rendering pages/adminpanel.html.erb within layouts/application
+  Rendered pages/adminpanel.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/ChrisLam/empowerpro/app/views/pages/adminpanel.html.erb:42: syntax error, unexpected ';', expecting ':'
+'.freeze;           @users.each do |user| 
+         ^
+/Users/ChrisLam/empowerpro/app/views/pages/adminpanel.html.erb:181: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/pages/adminpanel.html.erb:42: syntax error, unexpected ';', expecting ':'
+app/views/pages/adminpanel.html.erb:181: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/adminpanel" for 127.0.0.1 at 2017-11-29 10:19:22 -0600
+Processing by PagesController#adminpanel as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 89], ["LIMIT", 1]]
+  Rendering pages/adminpanel.html.erb within layouts/application
+  Rendered pages/adminpanel.html.erb within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `exists?' for nil:NilClass):
+    22: </div><!--/nav -->
+    23: </div>
+    24: 
+    25: <% if @user.exists? %>
+    26: <div class="main">
+    27: <div class="col-md-10">
+    28: 
+  
+app/views/pages/adminpanel.html.erb:25:in `_app_views_pages_adminpanel_html_erb__498656437357590082_70186820907680'
+Started GET "/adminpanel" for 127.0.0.1 at 2017-11-29 10:19:29 -0600
+Processing by PagesController#adminpanel as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 89], ["LIMIT", 1]]
+  Rendering pages/adminpanel.html.erb within layouts/application
+  Rendered pages/adminpanel.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/ChrisLam/empowerpro/app/views/pages/adminpanel.html.erb:42: syntax error, unexpected ';', expecting ':'
+'.freeze;           @users.each do |user| 
+         ^
+/Users/ChrisLam/empowerpro/app/views/pages/adminpanel.html.erb:181: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/pages/adminpanel.html.erb:42: syntax error, unexpected ';', expecting ':'
+app/views/pages/adminpanel.html.erb:181: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/adminpanel" for 127.0.0.1 at 2017-11-29 10:19:55 -0600
+Processing by PagesController#adminpanel as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 89], ["LIMIT", 1]]
+  Rendering pages/adminpanel.html.erb within layouts/application
+  Rendered pages/adminpanel.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/ChrisLam/empowerpro/app/views/pages/adminpanel.html.erb:13: syntax error, unexpected ';', expecting ':'
+'.freeze;@output_buffer.append=( link_...
+         ^
+/Users/ChrisLam/empowerpro/app/views/pages/adminpanel.html.erb:183: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/pages/adminpanel.html.erb:13: syntax error, unexpected ';', expecting ':'
+app/views/pages/adminpanel.html.erb:183: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/adminpanel" for 127.0.0.1 at 2017-11-29 10:20:24 -0600
+Processing by PagesController#adminpanel as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 89], ["LIMIT", 1]]
+  Rendering pages/adminpanel.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUserProfile Load (0.1ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles"[0m
+  [1m[36mSponsorProfile Load (0.3ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."secret_key" = ? LIMIT ?[0m  [["secret_key", 1234], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 91], ["LIMIT", 1]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" WHERE "sponsor_profiles"."secret_key" = ? LIMIT ?[0m  [["secret_key", 4321], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 93], ["LIMIT", 1]]
+  [1m[36mSponsorProfile Load (0.1ms)[0m  [1m[34mSELECT "sponsor_profiles".* FROM "sponsor_profiles"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 89], ["LIMIT", 1]]
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."sponsor_profile_id" = ?[0m  [["sponsor_profile_id", 1111]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 90], ["LIMIT", 1]]
+  [1m[36mUserProfile Load (0.1ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."sponsor_profile_id" = ?[0m  [["sponsor_profile_id", 1234]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 92], ["LIMIT", 1]]
+  [1m[36mUserProfile Load (0.1ms)[0m  [1m[34mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."sponsor_profile_id" = ?[0m  [["sponsor_profile_id", 4321]]
+  Rendered pages/adminpanel.html.erb within layouts/application (84.2ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 144ms (Views: 137.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/adminpanel" for 127.0.0.1 at 2017-11-29 10:20:41 -0600
+Processing by PagesController#adminpanel as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 89], ["LIMIT", 1]]
+  Rendering pages/adminpanel.html.erb within layouts/application
+  Rendered pages/adminpanel.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/ChrisLam/empowerpro/app/views/pages/adminpanel.html.erb:44: syntax error, unexpected ';', expecting ':'
+            <td>'.freeze;@output_buffer.append=( user....
+                         ^):
+  
+app/views/pages/adminpanel.html.erb:44: syntax error, unexpected ';', expecting ':'
+Started GET "/adminpanel" for 127.0.0.1 at 2017-11-29 10:21:10 -0600
+Processing by PagesController#adminpanel as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 89], ["LIMIT", 1]]
+  Rendering pages/adminpanel.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mSponsorProfile Load (0.2ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE UserProfile Load (0.0ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE SponsorProfile Load (0.0ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE UserProfile Load (0.0ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE SponsorProfile Load (0.0ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE UserProfile Load (0.0ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE SponsorProfile Load (0.0ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered pages/adminpanel.html.erb within layouts/application (147.5ms)
+Completed 500 Internal Server Error in 157ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `users?' for #<#<Class:0x007fab47eed6b8>:0x007fab47db1538>
+Did you mean?  users_url):
+    39:           </tr>
+    40:         </thead>
+    41:         <tbody>
+    42:           <% if users? %>
+    43:           <% @users.each do |user| %>
+    44:           <tr>
+    45:             <td><%= user.email %></td>
+  
+app/views/pages/adminpanel.html.erb:42:in `_app_views_pages_adminpanel_html_erb__498656437357590082_70186810840880'
+Started GET "/adminpanel" for 127.0.0.1 at 2017-11-29 10:21:18 -0600
+Processing by PagesController#adminpanel as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 89], ["LIMIT", 1]]
+  Rendering pages/adminpanel.html.erb within layouts/application
+  [1m[36mUserProfile Load (0.2ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mSponsorProfile Load (0.2ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE UserProfile Load (0.0ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE SponsorProfile Load (0.0ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE UserProfile Load (0.0ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE SponsorProfile Load (0.0ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE UserProfile Load (0.0ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE SponsorProfile Load (0.0ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE UserProfile Load (0.0ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE SponsorProfile Load (0.0ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE UserProfile Load (0.0ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE SponsorProfile Load (0.0ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE UserProfile Load (0.0ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE SponsorProfile Load (0.0ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE UserProfile Load (0.0ms)[0m  [1m[34mSELECT  "user_profiles".* FROM "user_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE SponsorProfile Load (0.0ms)[0m  [1m[34mSELECT  "sponsor_profiles".* FROM "sponsor_profiles" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered pages/adminpanel.html.erb within layouts/application (380.0ms)
+Completed 500 Internal Server Error in 387ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `users' for #<#<Class:0x007fab47eed6b8>:0x007fab440085d8>
+Did you mean?  @users):
+    39:           </tr>
+    40:         </thead>
+    41:         <tbody>
+    42:           <% if users.exist? %>
+    43:           <% @users.each do |user| %>
+    44:           <tr>
+    45:             <td><%= user.email %></td>
+  
+app/views/pages/adminpanel.html.erb:42:in `_app_views_pages_adminpanel_html_erb__498656437357590082_70186778511640'
