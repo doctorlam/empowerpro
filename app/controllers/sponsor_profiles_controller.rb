@@ -2,7 +2,6 @@ class SponsorProfilesController < ApplicationController
   before_action :set_sponsor_profile, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:show, :index, :new, :create, :edit, :update, :destroy]
       before_action :user_is_current_user, only: [:show, :edit, :update, :destroy]
-    before_action :authorize_admin, only: [:index]
 
   # GET /sponsor_profiles
   # GET /sponsor_profiles.json
@@ -57,7 +56,7 @@ class SponsorProfilesController < ApplicationController
       if @sponsor_profile.update(sponsor_profile_params) && current_user.admin?
 
         format.html { redirect_to @sponsor_profile, notice: 'Sponsor profile was successfully updated.' }
-        format.json { render :show, status: :ok, location: dashboard_path }
+        format.json { render :show, status: :ok, location: sponsor_profile }
       elsif @sponsor_profile.update(sponsor_profile_params) 
           format.html { redirect_to dashboard_path, notice: 'Sponsor profile was successfully updated.' }
         format.json { render :show, status: :ok, location: dashboard_path }
