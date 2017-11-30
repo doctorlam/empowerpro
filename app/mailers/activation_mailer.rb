@@ -3,7 +3,7 @@ class ActivationMailer < ApplicationMailer
 
   def activation_email(user)
     @user = user
-    mail(to: [@user.email, 'admin@gmail.com'], subject: 'Activation Email')
+    mail(to: [@user.email], subject: 'Activation Email')
 
   end
 end

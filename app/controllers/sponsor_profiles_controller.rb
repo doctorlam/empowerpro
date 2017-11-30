@@ -38,12 +38,12 @@ class SponsorProfilesController < ApplicationController
 
     respond_to do |format|
       if @sponsor_profile.save && current_user.admin?
-                      RegistrationMailer.registration_email(@user).deliver
+                      SponsorRegistrationMailer.sponsor_registration_email(@user).deliver
 
         format.html { redirect_to @sponsor_profile, notice: 'Sponsor profile was successfully created.' }
         format.json { render :show, status: :created, location: @sponsor_profile }
       elsif 
-                      RegistrationMailer.registration_email(@user).deliver
+                      SponsorRegistrationMailer.sponsor_registration_email(@user).deliver
 
          format.html { redirect_to dashboard_path, notice: 'Sponsor profile was successfully created. You will receive an email if your account is activated' }
         format.json { render :show, status: :created, location: dashboard_path }
