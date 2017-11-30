@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :sponsor_profiles
   devise_for :users, controllers: { registrations: "registrations" }, :path_prefix => 'account'
   resources :users
-
+  
 
   # Name it however you want
   post 'create_user' => 'users#create', as: :create_user      
@@ -20,7 +20,10 @@ Rails.application.routes.draw do
     get "registrationlanding" => "pages#registrationlanding"
    get "home" => "pages#home"
 
-
+if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+  
 
 
 end

@@ -32,14 +32,19 @@ class SponsorProfilesController < ApplicationController
   # POST /sponsor_profiles
   # POST /sponsor_profiles.json
   def create
+    @user = current_user
     @sponsor_profile = SponsorProfile.new(sponsor_profile_params)
     @sponsor_profile.user_id = current_user.id
 
     respond_to do |format|
       if @sponsor_profile.save && current_user.admin?
+                      RegistrationMailer.registration_email(@user).deliver
+
         format.html { redirect_to @sponsor_profile, notice: 'Sponsor profile was successfully created.' }
         format.json { render :show, status: :created, location: @sponsor_profile }
       elsif 
+                      RegistrationMailer.registration_email(@user).deliver
+
          format.html { redirect_to dashboard_path, notice: 'Sponsor profile was successfully created. You will receive an email if your account is activated' }
         format.json { render :show, status: :created, location: dashboard_path }
       else

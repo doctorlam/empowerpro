@@ -31,14 +31,20 @@ class UserProfilesController < ApplicationController
   # POST /user_profiles
   # POST /user_profiles.json
   def create
+    @user = current_user
     @user_profile = UserProfile.new(user_profile_params)
     @user_profile.user_id = current_user.id
 
     respond_to do |format|
+
       if @user_profile.save && current_user.admin?
+              RegistrationMailer.registration_email(@user).deliver
+
         format.html { redirect_to @user_profile, notice: 'User profile was successfully created.' }
         format.json { render :show, status: :created, location: @user_profile }
       elsif @user_profile.save
+                    RegistrationMailer.registration_email(@user).deliver
+
         format.html { redirect_to dashboard_path, notice: 'User profile was successfully created.' }
         format.json { render :show, status: :created, location: dashboard_path }
       else
@@ -51,6 +57,8 @@ class UserProfilesController < ApplicationController
   # PATCH/PUT /user_profiles/1
   # PATCH/PUT /user_profiles/1.json
   def update
+
+  
     respond_to do |format|
       if @user_profile.update(user_profile_params) && current_user.admin?
 
@@ -59,6 +67,7 @@ class UserProfilesController < ApplicationController
       elsif @user_profile.update(user_profile_params)
         format.html { redirect_to dashboard_path, notice: 'User profile was successfully updated.' }
         format.json { render :show, status: :ok, location: dashboard_path }
+
       else
         format.html { render :edit }
         format.json { render json: @user_profile.errors, status: :unprocessable_entity }
