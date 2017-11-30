@@ -21,7 +21,7 @@ gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
 gem 'nested_form_fields'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
-
+gem "figaro"
 group :production do 
   gem 'pg'
   gem 'rails_12factor'
